@@ -1,8 +1,15 @@
+// functional
 import React, { useContext } from "react";
-import Nav from 'react-bootstrap/Nav';
-import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
 import { CurrentUserContext } from "../App";
+
+// styles
+import styles from '../styles/NavBar.module.css'
+import "../global.css";
+
+// bootstrap and components
+import {Nav} from 'react-bootstrap';
+
 
 const NavBar = () => {
     const currentUser = useContext(CurrentUserContext);
@@ -17,13 +24,16 @@ const NavBar = () => {
     </>
 
     return ( <>
-        <Nav>
-            <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"><i className="fas fa-home" /> Home</NavLink>
-            {nonAuthenticatedOptions}
-            {authenticatedOptions}
-            <p>user: {currentUser?.username}</p>
-        </Nav>
-        </> )
+        <div className={styles.NavBarContainer}>
+            <Nav>
+                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"> Home</NavLink>
+                
+                
+                {currentUser ? (authenticatedOptions) : (nonAuthenticatedOptions)}
+                
+            </Nav>
+        </div>
+    </> )
 };
 
 export default NavBar;

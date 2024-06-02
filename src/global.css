@@ -1,0 +1,7 @@
+:root {
+    --theme: rgb(255, 100, 125);
+    --white: rgb(200, 200, 200);
+    --container-black: rgb(30, 30, 30);
+    --container-border: rgb(50, 50, 50);
+    --void: rgb(0, 0, 0);
+}
