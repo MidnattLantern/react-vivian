@@ -1,0 +1,39 @@
+.NavPieContainer{
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+.NavPiePiece{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.NavPie0,
+.NavPie1,
+.NavPie2,
+.NavPie3,
+.NavPie4,
+.NavPie5,
+.NavPie6 {
+  pointer-events: none;
+}
+.NavPie0 path,
+.NavPie1 path,
+.NavPie2 path,
+.NavPie3 path,
+.NavPie4 path,
+.NavPie5 path,
+.NavPie6 path{
+    fill: var(--container-black);
+    pointer-events: auto;
+}
+.NavPie0 path:hover,
+.NavPie1 path:hover,
+.NavPie2 path:hover,
+.NavPie3 path:hover,
+.NavPie4 path:hover,
+.NavPie5 path:hover,
+.NavPie6 path:hover{
+    fill: var(--theme);
+    cursor: none;
+}
