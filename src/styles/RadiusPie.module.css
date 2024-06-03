@@ -1,0 +1,79 @@
+.RadiusPieContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.TransformBox1 {
+    width: 250px;
+    text-align: left;
+    transform: rotate(300deg);
+}
+.TransformBox2 {
+    width: 250px;
+    text-align: left;
+    transform: rotate(0deg);
+}
+.TransformBox3 {
+    width: 250px;
+    text-align: left;
+    transform: rotate(60deg);
+}
+.TransformBox4 {
+    width: 250px;
+    text-align: right;
+    transform: rotate(300deg);
+}
+.TransformBox5 {
+    width: 250px;
+    text-align: right;
+    transform: rotate(0deg);
+}
+.TransformBox6 {
+    width: 250px;
+    text-align: right;
+    transform: rotate(60deg);
+}
+
+.TransformBox1,
+.TransformBox2,
+.TransformBox3,
+.TransformBox4,
+.TransformBox5,
+.TransformBox6{
+    position: absolute;
+    top: 500px;
+    left: 500px;
+}
+.MySVG {
+    position: absolute;
+    top: 365px;
+    left: 475px;
+    stroke: var(--void);
+    fill: var(--container-black);
+    z-index: -1;
+}
+.MyInnerSVG{
+    position: absolute;
+    top: 465px;
+    left: 575px;
+    stroke: var(--void);
+    fill: var(--void);
+    z-index: 1;
+}
+.Stroke1,
+.Stroke2,
+.Stroke3{
+    position: absolute;
+    top: 365px;
+    left: 475px;
+    stroke: var(--void);
+}
+.Stroke1 {
+    transform: rotate(0deg);
+}
+.Stroke2 {
+    transform: rotate(60deg);
+}
+.Stroke3 {
+    transform: rotate(120deg);
+}

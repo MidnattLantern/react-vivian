@@ -1,6 +1,9 @@
 // functional
 import React, { useContext } from "react";
 import { CurrentUserContext } from "../../App";
+// components
+import RadiusPie from "./RadiusPie";
+
 
 const HomePage = () => {
     const currentUser = useContext(CurrentUserContext);
@@ -9,6 +12,7 @@ const HomePage = () => {
         <div>
             <h1>Home page</h1>
             <p>user: {currentUser?.username}</p>
+            <RadiusPie />
         </div>
     )
 };

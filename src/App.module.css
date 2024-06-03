@@ -1,11 +1,15 @@
+/* border */
+/* width/height */
+
 .AppContainer {
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 .MainViewContainer {
     flex-grow: 1;
     padding: 10px;
+    overflow-y: auto;
 }
 .NavBarContainer {
     width: 20vh;

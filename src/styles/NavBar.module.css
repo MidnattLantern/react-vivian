@@ -6,8 +6,8 @@
 }
 .NavBarButton {
     border: 2px solid var(--void);
-    color: var(--white);
     border-radius: 3px;
+    color: var(--white);
     margin: auto;
     margin-top: 20px;
     padding: 5px;
@@ -19,7 +19,11 @@
     color: var(--theme);
 }
 @media (max-width: 600px) {
-    .NavBarButton{
+    .NavBarContainer {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .NavBarButton {
         margin: 5px;
     }
 }
