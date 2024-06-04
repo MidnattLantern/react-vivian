@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="RT" transform="matrix(1,0,0,2.04037,1375.75,-1154.16)">
         <g id="shoulders">
-            <path id="RT1" serif:id="RT" d="M606.139,623.947L606.139,667.061C606.139,669.705 601.759,671.852 596.365,671.852L110.478,671.852C105.083,671.852 100.704,669.705 100.704,667.061L100.704,590.413C100.704,582.481 113.843,576.042 130.027,576.042L508.395,576.042C562.341,576.042 606.139,597.507 606.139,623.947Z" style="fill:rgb(165,165,165);"/>
+            <path id="RT1" d="M606.139,623.947L606.139,667.061C606.139,669.705 601.759,671.852 596.365,671.852L110.478,671.852C105.083,671.852 100.704,669.705 100.704,667.061L100.704,590.413C100.704,582.481 113.843,576.042 130.027,576.042L508.395,576.042C562.341,576.042 606.139,597.507 606.139,623.947Z" style="fill:rgb(165,165,165);"/>
         </g>
     </g>
 </svg>

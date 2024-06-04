@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="root-menu" transform="matrix(0.925403,0,0,0.925403,69.2806,341.579)">
         <g id="menu">
-            <circle id="root-menu1" serif:id="root-menu" cx="1041.29" cy="796.369" r="112.564" style="fill:rgb(165,165,165);"/>
+            <circle id="root-menu1" cx="1041.29" cy="796.369" r="112.564" style="fill:rgb(165,165,165);"/>
         </g>
     </g>
 </svg>

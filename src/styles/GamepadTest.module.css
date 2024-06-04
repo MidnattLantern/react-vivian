@@ -5,7 +5,26 @@
 }
 .BodySVG{
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0pt;
+    left: 0pt;
     z-index: -1;
+}
+.FaceDownSVG,
+.FaceRightSVG,
+.FaceLeftSVG,
+.FaceUpSVG,
+.LSVG,
+.RSVG,
+.LTSVG,
+.RTSVG,
+.LeftMenuSVG,
+.RightMenuSVG,
+.DPadUpSVG,
+.DPadDownSVG,
+.DPadLeftSVG,
+.DPadRightSVG{
+    position: absolute;
+    top: 0pt;
+    left: 0pt;
+    z-index: 1;
 }

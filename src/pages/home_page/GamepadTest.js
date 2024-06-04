@@ -5,7 +5,21 @@ import Styles from "../../styles/GamepadTest.module.css";
 import "../../global.css"
 // gamepad modues
 import {ReactComponent as BodySVG} from "../../assets/gamepad/Body.svg";
+import {ReactComponent as FaceDownSVG} from "../../assets/gamepad/FaceDown.svg";
+import {ReactComponent as FaceRightSVG} from "../../assets/gamepad/FaceRight.svg";
 import {ReactComponent as FaceLeftSVG} from "../../assets/gamepad/FaceLeft.svg";
+import {ReactComponent as FaceUpSVG} from "../../assets/gamepad/FaceUp.svg";
+import {ReactComponent as LSVG} from "../../assets/gamepad/L.svg";
+import {ReactComponent as RSVG} from "../../assets/gamepad/R.svg";
+import {ReactComponent as LTSVG} from "../../assets/gamepad/LT.svg";
+import {ReactComponent as RTSVG} from "../../assets/gamepad/RT.svg";
+import {ReactComponent as LeftMenuSVG} from "../../assets/gamepad/LeftMenu.svg";
+import {ReactComponent as RightMenuSVG} from "../../assets/gamepad/RightMenu.svg";
+import {ReactComponent as DPadUpSVG} from "../../assets/gamepad/DPadUp.svg";
+import {ReactComponent as DPadDownSVG} from "../../assets/gamepad/DPadDown.svg";
+import {ReactComponent as DPadLeftSVG} from "../../assets/gamepad/DPadLeft.svg";
+import {ReactComponent as DPadRightSVG} from "../../assets/gamepad/DPadRight.svg";
+import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
 
 const GamepadTest = () => {
     const pollGamepad = () => {
@@ -32,10 +46,10 @@ const GamepadTest = () => {
                 console.log('[5] R')
             }
             if (gp.buttons[6].pressed) {
-                console.log('[6] ZL')
+                console.log('[6] LT')
             }
             if (gp.buttons[7].pressed) {
-                console.log('[7] ZR')
+                console.log('[7] RT')
             }
             if (gp.buttons[8].pressed) {
                 console.log('[8] left menu')
@@ -75,8 +89,22 @@ const GamepadTest = () => {
 
     return(<>
         <div className={Styles.GamepadTestContainer}>
-        <BodySVG className={Styles.BodySVG} />
-        <FaceLeftSVG className={Styles.FaceLeftSVG}/>
+            <BodySVG className={Styles.BodySVG} />
+            <FaceDownSVG className={Styles.FaceDownSVG} />
+            <FaceRightSVG className={Styles.FaceRightSVG} />
+            <FaceLeftSVG className={Styles.FaceLeftSVG}/>
+            <FaceUpSVG className={Styles.FaceUpSVG} />
+            <LSVG className={Styles.LSVG} />
+            <RSVG className={Styles.RSVG} />
+            <LTSVG className={Styles.LTSVG} />
+            <RTSVG className={Styles.RTSVG} />
+            <LeftMenuSVG className={Styles.LeftMenuSVG} />
+            <RightMenuSVG className={Styles.RightMenuSVG} />
+            <DPadUpSVG className={Styles.DPadUpSVG} />
+            <DPadDownSVG className={Styles.DPadDownSVG} />
+            <DPadLeftSVG className={Styles.DPadLeftSVG} />
+            <DPadRightSVG className={Styles.DPadRightSVG} />
+            <RootMenuSVG className={Styles.RootMenuSVG} />
         </div>
     </>);
 };
