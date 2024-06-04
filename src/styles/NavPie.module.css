@@ -2,6 +2,7 @@
     position: relative;
     width: 300px;
     height: 300px;
+    cursor: none;
 }
 .NavPiePiece{
     position: absolute;
@@ -34,6 +35,25 @@
 .NavPie4 path:hover,
 .NavPie5 path:hover,
 .NavPie6 path:hover{
+    fill: var(--container-black);
+    stroke: var(--theme);
+    stroke-width: 2px;
+}
+.NavPie0 text,
+.NavPie1 text,
+.NavPie2 text,
+.NavPie3 text,
+.NavPie4 text,
+.NavPie5 text,
+.NavPie6 text{
+    fill: var(--white);
+}
+.NavPie0:hover text,
+.NavPie1:hover text,
+.NavPie2:hover text,
+.NavBar3:hover text,
+.NavBar4:hover text,
+.NavBar5:hover text,
+.NavPie6:hover text{
     fill: var(--theme);
-    cursor: none;
 }

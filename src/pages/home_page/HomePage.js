@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import { CurrentUserContext } from "../../App";
 // components
-import RadiusPie2 from "./NavPie";
+import NavPie from "./NavPie";
 
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
         <div>
             <h1>Home page</h1>
             <p>user: {currentUser?.username}</p>
-            <RadiusPie2 />
+            <NavPie />
         </div>
     )
 };
