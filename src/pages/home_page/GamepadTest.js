@@ -22,7 +22,7 @@ import {ReactComponent as DPadRightSVG} from "../../assets/gamepad/DPadRight.svg
 import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
 
 const GamepadTest = () => {
-    let [buttonStates, setButtonStates] = useState({
+    const [buttonStates, setButtonStates] = useState({
         0: false,
         1: false,
         2: false,
@@ -41,10 +41,16 @@ const GamepadTest = () => {
         15: false,
         16: false,
     });
+    const [joystickStates, setJoystickStates] = useState({
+        left: { x: 0, y: 0 },
+        right: { x: 0, y: 0 }
+    });
+
     
     const pollGamepad = () => {
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
         let newButtonStates = { ...buttonStates };
+        let newJoystickStates = { ...joystickStates };
 
         for (let i = 0; i < gamepads.length; i++) {
             const gp = gamepads[i];
@@ -52,8 +58,22 @@ const GamepadTest = () => {
             for (let j = 0; j < gp.buttons.length; j++) {
                 newButtonStates[j] = gp.buttons[j].pressed;
             }
+            // Update joystick states
+            if (gp.axes.length >= 2) {
+                newJoystickStates.left = {
+                    x: gp.axes[0],
+                    y: gp.axes[1]
+                };
+            }
+            if (gp.axes.length >= 4) {
+                newJoystickStates.right = {
+                    x: gp.axes[2],
+                    y: gp.axes[3]
+                };
+            }
         }
         setButtonStates(newButtonStates);
+        setJoystickStates(newJoystickStates);
     };
     useEffect(() => {
         const interval = setInterval(pollGamepad, 100);
@@ -61,7 +81,6 @@ const GamepadTest = () => {
               clearInterval(interval);
         };
     }, []);
-
     useEffect(() => {
         // This effect logs the button states whenever they change
         for (let button in buttonStates) {
@@ -70,6 +89,8 @@ const GamepadTest = () => {
             }
         }
     }, [buttonStates]);
+    useEffect(() => {
+    }, [joystickStates]);
 
     return(<>
         <div className={`${Styles.GamepadTestContainer}`}>
@@ -123,6 +144,16 @@ const GamepadTest = () => {
                 <td/>
             </tr>
         </table>
+        <br/>
+        <div className={Styles.JoystickContainer}>
+            <p>Left joystick x:</p>
+            <p>x={joystickStates.left.x}</p>
+            <p>y={joystickStates.left.y}</p>
+            <hr/>
+            <p>Right joystick x:</p>
+            <p>x={joystickStates.right.x}</p>
+            <p>y={joystickStates.right.y}</p>
+        </div>
     </>);
 };
 
