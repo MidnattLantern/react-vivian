@@ -1,5 +1,5 @@
 // functional
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // styles
 import Styles from "../../styles/GamepadTest.module.css";
 import "../../global.css"
@@ -22,13 +22,36 @@ import {ReactComponent as DPadRightSVG} from "../../assets/gamepad/DPadRight.svg
 import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
 
 const GamepadTest = () => {
+    let [buttonStates, setButtonStates] = useState({
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false,
+        16: false,
+    });
+    
     const pollGamepad = () => {
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+        let newButtonStates = { ...buttonStates };
+
         for (let i = 0; i < gamepads.length; i++) {
             const gp = gamepads[i];
             if (!gp) continue;
             if (gp.buttons[0].pressed) {
                 console.log('[0] face down');
+                newButtonStates[0] = gp.buttons[0].pressed;
             }
             if (gp.buttons[1].pressed) {
                 console.log('[1] face right')
@@ -79,6 +102,7 @@ const GamepadTest = () => {
                 console.log('[16] root menu')
             }
         }
+        setButtonStates(newButtonStates);
     };
     useEffect(() => {
         const interval = setInterval(pollGamepad, 100);
@@ -86,6 +110,15 @@ const GamepadTest = () => {
               clearInterval(interval);
         };
     }, []);
+
+    useEffect(() => {
+        // This effect logs the button states whenever they change
+        for (let button in buttonStates) {
+            if (buttonStates[button]) {
+//                console.log(`[${button}] is pressed`);
+            }
+        }
+    }, [buttonStates]);
 
     return(<>
         <div className={Styles.GamepadTestContainer}>
@@ -106,6 +139,7 @@ const GamepadTest = () => {
             <DPadRightSVG className={Styles.DPadRightSVG} />
             <RootMenuSVG className={Styles.RootMenuSVG} />
         </div>
+        <p>face down: </p>{buttonStates[0] ? (<p>true</p>) : (<p>false</p>)}
     </>);
 };
 
