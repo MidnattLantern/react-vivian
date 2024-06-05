@@ -1,5 +1,5 @@
 // functional
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // styles
 import Styles from "../../styles/GamepadComponent.module.css";
 import "../../global.css"
@@ -46,6 +46,7 @@ const GamepadComponent = () => {
         right: { x: 0, y: 0 },
     });
 
+    const myRef = useRef(null);
     
     const pollGamepad = () => {
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
@@ -57,6 +58,9 @@ const GamepadComponent = () => {
             if (!gp) continue;
             for (let j = 0; j < gp.buttons.length; j++) {
                 newButtonStates[j] = gp.buttons[j].pressed;
+            }
+            if (gp.buttons[0].pressed) {
+                console.log("press [0]")
             }
             if (gp.axes.length >= 2) {
                 newanalogStickStates.left = {
@@ -75,9 +79,9 @@ const GamepadComponent = () => {
         setAnalogStickStates(newanalogStickStates);
     };
     useEffect(() => {
-        const interval = setInterval(pollGamepad, 100);
+        const interval = setInterval(pollGamepad, 1);
         return () => {
-              clearInterval(interval);
+            clearInterval(interval);
         };
     }, [buttonStates, analogStickStates]);
 
@@ -134,7 +138,7 @@ const GamepadComponent = () => {
             </tr>
         </table>
         <br/>
-        <div className={Styles.JoystickContainer}>
+        <div ref={myRef} className={Styles.JoystickContainer}>
             <p>Left analog stick:</p>
             <p>x={analogStickStates.left.x}</p>
             <p>y={analogStickStates.left.y}</p>
@@ -142,6 +146,19 @@ const GamepadComponent = () => {
             <p>Right analog stick:</p>
             <p>x={analogStickStates.right.x}</p>
             <p>y={analogStickStates.right.y}</p>
+        </div>
+
+        <br/>
+        <div className={Styles.AnalogSVGConainer}>
+            <svg height={200} width={200}>
+                <line x1={100} y1={100} x2={100 + (analogStickStates.left.x * 100)} y2={100 + (analogStickStates.left.y * 100)} className={Styles.AnalogSVGStroke} />
+            </svg>
+        </div>
+        <br/>
+        <div className={Styles.AnalogSVGConainer}>
+            <svg height={200} width={200}>
+                <line x1={100} y1={100} x2={100 + (analogStickStates.right.x * 100)} y2={100 + (analogStickStates.right.y * 100)} className={Styles.AnalogSVGStroke} />
+            </svg>
         </div>
     </>);
 };

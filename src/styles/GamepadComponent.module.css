@@ -64,3 +64,16 @@ td{
     padding: 10px;
     width: 200pt;
 }
+
+.AnalogSVGConainer{
+    background-color: var(--container-black);
+    border: 1px solid var(--container-border);
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.AnalogSVGStroke{
+    stroke: var(--theme);
+    stroke-width: 2px;
+}
