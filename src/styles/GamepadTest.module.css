@@ -28,3 +28,20 @@
     left: 0pt;
     z-index: 1;
 }
+
+table{
+    background-color: var(--container-black);
+    border: 1px solid var(--container-border);
+}
+td{
+    padding: 10px;
+    border: 1px solid var(--container-border);
+    text-align: center;
+}
+
+.ButtonStateFalse{
+    color: var(--white);
+}
+.ButtonStateTrue{
+    color: var(--theme);
+}

@@ -92,72 +92,34 @@ const GamepadTest = () => {
         </div>
         <table>
             <tr>
-                <td><p>Face Down: </p></td>
-                <td>{buttonStates[0] ? (<p>true</p>) : (<p>false</p>)}</td>
+                <td className={buttonStates[0] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Down</td>
+                <td className={buttonStates[1] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Right</td>
+                <td className={buttonStates[2] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Left</td>
+                <td className={buttonStates[3] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Up</td>
             </tr>
             <tr>
-                <td><p>Face Right: </p></td>
-                <td>{buttonStates[1] ? (<p>true</p>) : (<p>false</p>)}</td>
+                <td className={buttonStates[4] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>L</td>
+                <td className={buttonStates[5] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>R</td>
+                <td className={buttonStates[6] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>LT</td>
+                <td className={buttonStates[7] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>RT</td>
             </tr>
             <tr>
-                <td><p>Face Left: </p></td>
-                <td>{buttonStates[2] ? (<p>true</p>) : (<p>false</p>)}</td>
+                <td className={buttonStates[8] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Left Menu</td>
+                <td className={buttonStates[9] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Right Menu</td>
+                <td className={buttonStates[10] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>??</td>
+                <td className={buttonStates[11] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>??</td>
             </tr>
             <tr>
-                <td><p>Face Up: </p></td>
-                <td>{buttonStates[3] ? (<p>true</p>) : (<p>false</p>)}</td>
+                <td className={buttonStates[12] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Up</td>
+                <td className={buttonStates[13] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Down</td>
+                <td className={buttonStates[14] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Left</td>
+                <td className={buttonStates[15] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Right</td>
             </tr>
             <tr>
-                <td><p>L: </p></td>
-                <td>{buttonStates[4] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>R: </p></td>
-                <td>{buttonStates[5] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>LT: </p></td>
-                <td>{buttonStates[6] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>RT: </p></td>
-                <td>{buttonStates[7] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>Left Menu: </p></td>
-                <td>{buttonStates[8] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>Right Menu: </p></td>
-                <td>{buttonStates[9] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>??: </p></td>
-                <td>{buttonStates[10] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>??: </p></td>
-                <td>{buttonStates[11] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>D-Pad Up: </p></td>
-                <td>{buttonStates[12] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>D-Pad Down: </p></td>
-                <td>{buttonStates[13] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>D-Pad Left: </p></td>
-                <td>{buttonStates[14] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>D-Pad Right: </p></td>
-                <td>{buttonStates[15] ? (<p>true</p>) : (<p>false</p>)}</td>
-            </tr>
-            <tr>
-                <td><p>Root Menu: </p></td>
-                <td>{buttonStates[16] ? (<p>true</p>) : (<p>false</p>)}</td>
+                <td className={buttonStates[16] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Root Menu</td>
+                <td/>
+                <td/>
+                <td/>
             </tr>
         </table>
     </>);
