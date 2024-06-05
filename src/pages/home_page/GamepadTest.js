@@ -49,57 +49,8 @@ const GamepadTest = () => {
         for (let i = 0; i < gamepads.length; i++) {
             const gp = gamepads[i];
             if (!gp) continue;
-            if (gp.buttons[0].pressed) {
-                console.log('[0] face down');
-                newButtonStates[0] = gp.buttons[0].pressed;
-            }
-            if (gp.buttons[1].pressed) {
-                console.log('[1] face right')
-            }
-            if (gp.buttons[2].pressed) {
-                console.log('[2] face left')
-            }
-            if (gp.buttons[3].pressed) {
-                console.log('[3] face up')
-            }
-            if (gp.buttons[4].pressed) {
-                console.log('[4] L')
-            }
-            if (gp.buttons[5].pressed) {
-                console.log('[5] R')
-            }
-            if (gp.buttons[6].pressed) {
-                console.log('[6] LT')
-            }
-            if (gp.buttons[7].pressed) {
-                console.log('[7] RT')
-            }
-            if (gp.buttons[8].pressed) {
-                console.log('[8] left menu')
-            }
-            if (gp.buttons[9].pressed) {
-                console.log('[9] right menu')
-            }
-            if (gp.buttons[10].pressed) {
-                console.log('[10] ?')
-            }
-            if (gp.buttons[11].pressed) {
-                console.log('[11] ?')
-            }
-            if (gp.buttons[12].pressed) {
-                console.log('[12] D-pad up')
-            }
-            if (gp.buttons[13].pressed) {
-                console.log('[13] D-pad down')
-            }
-            if (gp.buttons[14].pressed) {
-                console.log('[14] D-pad-left')
-            }
-            if (gp.buttons[15].pressed) {
-                console.log('[15] D-pad-right')
-            }
-            if (gp.buttons[16].pressed) {
-                console.log('[16] root menu')
+            for (let j = 0; j < gp.buttons.length; j++) {
+                newButtonStates[j] = gp.buttons[j].pressed;
             }
         }
         setButtonStates(newButtonStates);
@@ -139,7 +90,76 @@ const GamepadTest = () => {
             <DPadRightSVG className={Styles.DPadRightSVG} />
             <RootMenuSVG className={Styles.RootMenuSVG} />
         </div>
-        <p>face down: </p>{buttonStates[0] ? (<p>true</p>) : (<p>false</p>)}
+        <table>
+            <tr>
+                <td><p>Face Down: </p></td>
+                <td>{buttonStates[0] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Face Right: </p></td>
+                <td>{buttonStates[1] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Face Left: </p></td>
+                <td>{buttonStates[2] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Face Up: </p></td>
+                <td>{buttonStates[3] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>L: </p></td>
+                <td>{buttonStates[4] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>R: </p></td>
+                <td>{buttonStates[5] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>LT: </p></td>
+                <td>{buttonStates[6] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>RT: </p></td>
+                <td>{buttonStates[7] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Left Menu: </p></td>
+                <td>{buttonStates[8] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Right Menu: </p></td>
+                <td>{buttonStates[9] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>??: </p></td>
+                <td>{buttonStates[10] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>??: </p></td>
+                <td>{buttonStates[11] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>D-Pad Up: </p></td>
+                <td>{buttonStates[12] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>D-Pad Down: </p></td>
+                <td>{buttonStates[13] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>D-Pad Left: </p></td>
+                <td>{buttonStates[14] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>D-Pad Right: </p></td>
+                <td>{buttonStates[15] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+            <tr>
+                <td><p>Root Menu: </p></td>
+                <td>{buttonStates[16] ? (<p>true</p>) : (<p>false</p>)}</td>
+            </tr>
+        </table>
     </>);
 };
 
