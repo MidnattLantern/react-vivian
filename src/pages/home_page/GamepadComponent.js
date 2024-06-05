@@ -104,59 +104,61 @@ const GamepadComponent = () => {
             <DPadRightSVG className={`${Styles.DPadRightSVG} ${buttonStates[15] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <RootMenuSVG className={`${Styles.RootMenuSVG} ${buttonStates[16] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
         </div>
+
         <br/>
-        <table>
-            <tr>
-                <td className={buttonStates[0] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Down</td>
-                <td className={buttonStates[1] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Right</td>
-                <td className={buttonStates[2] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Left</td>
-                <td className={buttonStates[3] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Up</td>
-            </tr>
-            <tr>
-                <td className={buttonStates[4] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>L</td>
-                <td className={buttonStates[5] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>R</td>
-                <td className={buttonStates[6] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>LT</td>
-                <td className={buttonStates[7] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>RT</td>
-            </tr>
-            <tr>
-                <td className={buttonStates[8] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Left Menu</td>
-                <td className={buttonStates[9] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Right Menu</td>
-                <td className={buttonStates[10] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>??</td>
-                <td className={buttonStates[11] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>??</td>
-            </tr>
-            <tr>
-                <td className={buttonStates[12] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Up</td>
-                <td className={buttonStates[13] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Down</td>
-                <td className={buttonStates[14] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Left</td>
-                <td className={buttonStates[15] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Right</td>
-            </tr>
-            <tr>
-                <td className={buttonStates[16] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Root Menu</td>
-                <td/>
-                <td/>
-                <td/>
-            </tr>
-        </table>
-        
-        <div className={Styles.AnalogSVGContainer}>
-            <div ref={myRef} className={Styles.JoystickContainer}>
-                <p>Left analog stick:</p>
-                <p>x={analogStickStates.left.x}</p>
-                <p>y={analogStickStates.left.y}</p>
-                <hr/>
-                <p>Right analog stick:</p>
-                <p>x={analogStickStates.right.x}</p>
-                <p>y={analogStickStates.right.y}</p>
-            </div>
-            <div className={Styles.AnalogSVGBox}>
-                <svg height={200} width={200}>
-                    <circle r={50} cx={100 + (analogStickStates.left.x * 50)} cy={100 + (analogStickStates.left.y * 50)} className={Styles.AnalogSVGCircle}/>
-                </svg>
-            </div>
-            <div className={Styles.AnalogSVGBox}>
-                <svg height={200} width={200}>
-                <circle r={50} cx={100 + (analogStickStates.right.x * 50)} cy={100 + (analogStickStates.right.y * 50)} className={Styles.AnalogSVGCircle}/>
-                </svg>
+        <div className={Styles.GamepadConsoleComponent}>
+            <table>
+                <tr>
+                    <td className={buttonStates[0] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Down</td>
+                    <td className={buttonStates[1] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Right</td>
+                    <td className={buttonStates[2] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Left</td>
+                    <td className={buttonStates[3] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Up</td>
+                </tr>
+                <tr>
+                    <td className={buttonStates[4] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>L</td>
+                    <td className={buttonStates[5] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>R</td>
+                    <td className={buttonStates[6] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>LT</td>
+                    <td className={buttonStates[7] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>RT</td>
+                </tr>
+                <tr>
+                    <td className={buttonStates[8] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Left Menu</td>
+                    <td className={buttonStates[9] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Right Menu</td>
+                    <td className={buttonStates[10] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Left Analog</td>
+                    <td className={buttonStates[11] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Right Analog</td>
+                </tr>
+                <tr>
+                    <td className={buttonStates[12] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Up</td>
+                    <td className={buttonStates[13] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Down</td>
+                    <td className={buttonStates[14] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Left</td>
+                    <td className={buttonStates[15] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>D-Pad Right</td>
+                </tr>
+                <tr>
+                    <td className={buttonStates[16] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Root Menu</td>
+                    <td/>
+                    <td/>
+                    <td/>
+                </tr>
+            </table>
+            <div className={Styles.AnalogSVGContainer}>
+                <div ref={myRef} className={Styles.JoystickContainer}>
+                    <p>Left analog stick:</p>
+                    <p>x={analogStickStates.left.x}</p>
+                    <p>y={analogStickStates.left.y}</p>
+                    <hr/>
+                    <p>Right analog stick:</p>
+                    <p>x={analogStickStates.right.x}</p>
+                    <p>y={analogStickStates.right.y}</p>
+                </div>
+                <div className={Styles.AnalogSVGBox}>
+                    <svg height={200} width={200}>
+                        <circle r={50} cx={100 + (analogStickStates.left.x * 50)} cy={100 + (analogStickStates.left.y * 50)} className={Styles.AnalogSVGCircle}/>
+                    </svg>
+                </div>
+                <div className={Styles.AnalogSVGBox}>
+                    <svg height={200} width={200}>
+                    <circle r={50} cx={100 + (analogStickStates.right.x * 50)} cy={100 + (analogStickStates.right.y * 50)} className={Styles.AnalogSVGCircle}/>
+                    </svg>
+                </div>
             </div>
         </div>
     </>);
