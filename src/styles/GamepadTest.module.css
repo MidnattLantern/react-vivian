@@ -8,6 +8,9 @@
     top: 0pt;
     left: 0pt;
     z-index: -1;
+    fill: var(--container-black);
+    stroke: var(--container-border);
+    stroke-width: 3pt;
 }
 .FaceDownSVG,
 .FaceRightSVG,
@@ -27,6 +30,9 @@
     top: 0pt;
     left: 0pt;
     z-index: 1;
+/*    fill: var(--void);*/
+    stroke: var(--container-border);
+    stroke-width: 3pt;
 }
 
 table{
@@ -44,4 +50,10 @@ td{
 }
 .ButtonStateTrue{
     color: var(--theme);
+}
+.ButtonStateSVGTrue{
+    fill: var(--theme);
+}
+.ButtonStateSVGFalse{
+    fill: var(--void);
 }

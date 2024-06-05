@@ -72,24 +72,25 @@ const GamepadTest = () => {
     }, [buttonStates]);
 
     return(<>
-        <div className={Styles.GamepadTestContainer}>
-            <BodySVG className={Styles.BodySVG} />
-            <FaceDownSVG className={Styles.FaceDownSVG} />
-            <FaceRightSVG className={Styles.FaceRightSVG} />
-            <FaceLeftSVG className={Styles.FaceLeftSVG}/>
-            <FaceUpSVG className={Styles.FaceUpSVG} />
-            <LSVG className={Styles.LSVG} />
-            <RSVG className={Styles.RSVG} />
-            <LTSVG className={Styles.LTSVG} />
-            <RTSVG className={Styles.RTSVG} />
-            <LeftMenuSVG className={Styles.LeftMenuSVG} />
-            <RightMenuSVG className={Styles.RightMenuSVG} />
-            <DPadUpSVG className={Styles.DPadUpSVG} />
-            <DPadDownSVG className={Styles.DPadDownSVG} />
-            <DPadLeftSVG className={Styles.DPadLeftSVG} />
-            <DPadRightSVG className={Styles.DPadRightSVG} />
-            <RootMenuSVG className={Styles.RootMenuSVG} />
+        <div className={`${Styles.GamepadTestContainer}`}>
+            <BodySVG className={`${Styles.BodySVG}`} />
+            <FaceDownSVG className={`${Styles.FaceDownSVG} ${buttonStates[0] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <FaceRightSVG className={`${Styles.FaceRightSVG} ${buttonStates[1] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <FaceLeftSVG className={`${Styles.FaceLeftSVG} ${buttonStates[2] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`}/>
+            <FaceUpSVG className={`${Styles.FaceUpSVG} ${buttonStates[3] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <LSVG className={`${Styles.LSVG} ${buttonStates[4] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <RSVG className={`${Styles.RSVG} ${buttonStates[5] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <LTSVG className={`${Styles.LTSVG} ${buttonStates[6] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <RTSVG className={`${Styles.RTSVG} ${buttonStates[7] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <LeftMenuSVG className={`${Styles.LeftMenuSVG} ${buttonStates[8] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <RightMenuSVG className={`${Styles.RightMenuSVG} ${buttonStates[9] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <DPadUpSVG className={`${Styles.DPadUpSVG} ${buttonStates[12] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <DPadDownSVG className={`${Styles.DPadDownSVG} ${buttonStates[13] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <DPadLeftSVG className={`${Styles.DPadLeftSVG} ${buttonStates[14] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <DPadRightSVG className={`${Styles.DPadRightSVG} ${buttonStates[15] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <RootMenuSVG className={`${Styles.RootMenuSVG} ${buttonStates[16] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
         </div>
+        <br/>
         <table>
             <tr>
                 <td className={buttonStates[0] ? Styles.ButtonStateTrue : Styles.ButtonStateFalse}>Face Down</td>

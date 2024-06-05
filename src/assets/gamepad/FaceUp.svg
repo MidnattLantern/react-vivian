@@ -3,7 +3,7 @@
 <svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="face-up" transform="matrix(0.792202,0,0,0.792202,344.166,357.576)">
         <g id="face">
-            <circle id="face-up1" cx="1656.25" cy="864.583" r="105.192" style="fill:rgb(186,97,121);"/>
+            <circle id="face-up1" cx="1656.25" cy="864.583" r="105.192" />
         </g>
     </g>
 </svg>
