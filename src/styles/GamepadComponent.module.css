@@ -9,8 +9,6 @@
     left: 0pt;
     z-index: -1;
     fill: var(--container-black);
-    stroke: var(--container-border);
-    stroke-width: 3pt;
 }
 .FaceDownSVG,
 .FaceRightSVG,
@@ -25,14 +23,13 @@
 .DPadUpSVG,
 .DPadDownSVG,
 .DPadLeftSVG,
-.DPadRightSVG{
+.DPadRightSVG,
+.LeftAnalogSVG,
+.RightAnalogSVG{
     position: absolute;
     top: 0pt;
     left: 0pt;
     z-index: 1;
-/*    fill: var(--void);*/
-    stroke: var(--container-border);
-    stroke-width: 3pt;
 }
 .GamepadConsoleComponent{
     width: fit-content;

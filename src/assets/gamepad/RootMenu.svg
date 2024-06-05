@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g id="root-menu" transform="matrix(0.925403,0,0,0.925403,69.2806,341.579)">
+<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1"  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="root-menu" transform="matrix(0.669962,0,0,0.669962,335.27,627.553)">
         <g id="menu">
-            <circle id="root-menu1" cx="1041.29" cy="796.369" r="112.564" />
+            <g id="root-menu1">
+                <circle cx="1041.29" cy="796.369" r="112.564" />
+                <path d="M1041.29,683.805C1103.42,683.805 1153.86,734.244 1153.86,796.369C1153.86,858.495 1103.42,908.933 1041.29,908.933C979.169,908.933 928.73,858.495 928.73,796.369C928.73,734.244 979.169,683.805 1041.29,683.805ZM1041.29,696.244C986.034,696.244 941.169,741.109 941.169,796.369C941.169,851.63 986.034,896.494 1041.29,896.494C1096.56,896.494 1141.42,851.63 1141.42,796.369C1141.42,741.109 1096.56,696.244 1041.29,696.244Z" />
+            </g>
         </g>
     </g>
 </svg>

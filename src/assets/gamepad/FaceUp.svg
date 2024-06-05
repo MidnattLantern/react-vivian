@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g id="face-up" transform="matrix(0.792202,0,0,0.792202,344.166,357.576)">
+<svg width="100%" height="100%" viewBox="0 0 2084 1667" version="1.1"  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="face-up" transform="matrix(0.7027,0,0,0.7027,492.403,397.209)">
         <g id="face">
-            <circle id="face-up1" cx="1656.25" cy="864.583" r="105.192" />
+            <g id="face-up1">
+                <circle cx="1656.25" cy="864.583" r="105.192" />
+                <path d="M1656.25,759.391C1714.31,759.391 1761.44,806.526 1761.44,864.583C1761.44,922.64 1714.31,969.775 1656.25,969.775C1598.19,969.775 1551.06,922.64 1551.06,864.583C1551.06,806.526 1598.19,759.391 1656.25,759.391ZM1656.25,771.25C1604.74,771.25 1562.92,813.071 1562.92,864.583C1562.92,916.095 1604.74,957.916 1656.25,957.916C1707.76,957.916 1749.58,916.095 1749.58,864.583C1749.58,813.071 1707.76,771.25 1656.25,771.25Z" />
+            </g>
         </g>
     </g>
 </svg>

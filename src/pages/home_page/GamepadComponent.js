@@ -20,6 +20,8 @@ import {ReactComponent as DPadDownSVG} from "../../assets/gamepad/DPadDown.svg";
 import {ReactComponent as DPadLeftSVG} from "../../assets/gamepad/DPadLeft.svg";
 import {ReactComponent as DPadRightSVG} from "../../assets/gamepad/DPadRight.svg";
 import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
+import {ReactComponent as LeftAnalogSVG} from "../../assets/gamepad/LeftAnalog.svg";
+import {ReactComponent as RightAnalogSVG} from "../../assets/gamepad/RightAnalog.svg";
 
 const GamepadComponent = () => {
     const [buttonStates, setButtonStates] = useState({
@@ -98,6 +100,8 @@ const GamepadComponent = () => {
             <RTSVG className={`${Styles.RTSVG} ${buttonStates[7] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <LeftMenuSVG className={`${Styles.LeftMenuSVG} ${buttonStates[8] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <RightMenuSVG className={`${Styles.RightMenuSVG} ${buttonStates[9] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <LeftAnalogSVG className={`${Styles.LeftAnalogSVG} ${buttonStates[10] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
+            <RightAnalogSVG className={`${Styles.RightAnalogSVG} ${buttonStates[11] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <DPadUpSVG className={`${Styles.DPadUpSVG} ${buttonStates[12] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <DPadDownSVG className={`${Styles.DPadDownSVG} ${buttonStates[13] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
             <DPadLeftSVG className={`${Styles.DPadLeftSVG} ${buttonStates[14] ? Styles.ButtonStateSVGTrue : Styles.ButtonStateSVGFalse}`} />
