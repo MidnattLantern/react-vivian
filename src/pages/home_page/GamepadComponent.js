@@ -137,28 +137,27 @@ const GamepadComponent = () => {
                 <td/>
             </tr>
         </table>
-        <br/>
-        <div ref={myRef} className={Styles.JoystickContainer}>
-            <p>Left analog stick:</p>
-            <p>x={analogStickStates.left.x}</p>
-            <p>y={analogStickStates.left.y}</p>
-            <hr/>
-            <p>Right analog stick:</p>
-            <p>x={analogStickStates.right.x}</p>
-            <p>y={analogStickStates.right.y}</p>
-        </div>
-
-        <br/>
-        <div className={Styles.AnalogSVGConainer}>
-            <svg height={200} width={200}>
-                <line x1={100} y1={100} x2={100 + (analogStickStates.left.x * 100)} y2={100 + (analogStickStates.left.y * 100)} className={Styles.AnalogSVGStroke} />
-            </svg>
-        </div>
-        <br/>
-        <div className={Styles.AnalogSVGConainer}>
-            <svg height={200} width={200}>
-                <line x1={100} y1={100} x2={100 + (analogStickStates.right.x * 100)} y2={100 + (analogStickStates.right.y * 100)} className={Styles.AnalogSVGStroke} />
-            </svg>
+        
+        <div className={Styles.AnalogSVGContainer}>
+            <div ref={myRef} className={Styles.JoystickContainer}>
+                <p>Left analog stick:</p>
+                <p>x={analogStickStates.left.x}</p>
+                <p>y={analogStickStates.left.y}</p>
+                <hr/>
+                <p>Right analog stick:</p>
+                <p>x={analogStickStates.right.x}</p>
+                <p>y={analogStickStates.right.y}</p>
+            </div>
+            <div className={Styles.AnalogSVGBox}>
+                <svg height={200} width={200}>
+                    <circle r={50} cx={100 + (analogStickStates.left.x * 50)} cy={100 + (analogStickStates.left.y * 50)} className={Styles.AnalogSVGCircle}/>
+                </svg>
+            </div>
+            <div className={Styles.AnalogSVGBox}>
+                <svg height={200} width={200}>
+                <circle r={50} cx={100 + (analogStickStates.right.x * 50)} cy={100 + (analogStickStates.right.y * 50)} className={Styles.AnalogSVGCircle}/>
+                </svg>
+            </div>
         </div>
     </>);
 };

@@ -58,22 +58,30 @@ td{
     fill: var(--void);
 }
 
+.AnalogSVGContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15pt;
+}
 .JoystickContainer{
     background-color: var(--container-black);
     border: 1px solid var(--container-border);
     padding: 10px;
     width: 200pt;
 }
-
-.AnalogSVGConainer{
+.AnalogSVGBox{
+    position: relative;
     background-color: var(--container-black);
     border: 1px solid var(--container-border);
-    border-radius: 100%;
+    border-radius: 0%;
     width: 200px;
     height: 200px;
     overflow: hidden;
+    margin-left: 15pt;
 }
-.AnalogSVGStroke{
-    stroke: var(--theme);
+.AnalogSVGCircle{
+    position: absolute;
+    fill: var(--void);
+    stroke: var(--container-border);
     stroke-width: 2px;
 }
