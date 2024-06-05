@@ -1,7 +1,7 @@
 // functional
 import React, { useEffect, useState } from 'react';
 // styles
-import Styles from "../../styles/GamepadTest.module.css";
+import Styles from "../../styles/GamepadComponent.module.css";
 import "../../global.css"
 // gamepad modues
 import {ReactComponent as BodySVG} from "../../assets/gamepad/Body.svg";
@@ -21,7 +21,7 @@ import {ReactComponent as DPadLeftSVG} from "../../assets/gamepad/DPadLeft.svg";
 import {ReactComponent as DPadRightSVG} from "../../assets/gamepad/DPadRight.svg";
 import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
 
-const GamepadTest = () => {
+const GamepadComponent = () => {
     const [buttonStates, setButtonStates] = useState({
         0: false,
         1: false,
@@ -41,16 +41,16 @@ const GamepadTest = () => {
         15: false,
         16: false,
     });
-    const [joystickStates, setJoystickStates] = useState({
+    const [analogStickStates, setAnalogStickStates] = useState({
         left: { x: 0, y: 0 },
-        right: { x: 0, y: 0 }
+        right: { x: 0, y: 0 },
     });
 
     
     const pollGamepad = () => {
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
         let newButtonStates = { ...buttonStates };
-        let newJoystickStates = { ...joystickStates };
+        let newanalogStickStates = { ...analogStickStates };
 
         for (let i = 0; i < gamepads.length; i++) {
             const gp = gamepads[i];
@@ -58,39 +58,28 @@ const GamepadTest = () => {
             for (let j = 0; j < gp.buttons.length; j++) {
                 newButtonStates[j] = gp.buttons[j].pressed;
             }
-            // Update joystick states
             if (gp.axes.length >= 2) {
-                newJoystickStates.left = {
+                newanalogStickStates.left = {
                     x: gp.axes[0],
-                    y: gp.axes[1]
+                    y: gp.axes[1],
                 };
             }
             if (gp.axes.length >= 4) {
-                newJoystickStates.right = {
+                newanalogStickStates.right = {
                     x: gp.axes[2],
-                    y: gp.axes[3]
+                    y: gp.axes[3],
                 };
             }
         }
         setButtonStates(newButtonStates);
-        setJoystickStates(newJoystickStates);
+        setAnalogStickStates(newanalogStickStates);
     };
     useEffect(() => {
         const interval = setInterval(pollGamepad, 100);
         return () => {
               clearInterval(interval);
         };
-    }, []);
-    useEffect(() => {
-        // This effect logs the button states whenever they change
-        for (let button in buttonStates) {
-            if (buttonStates[button]) {
-//                console.log(`[${button}] is pressed`);
-            }
-        }
-    }, [buttonStates]);
-    useEffect(() => {
-    }, [joystickStates]);
+    }, [buttonStates, analogStickStates]);
 
     return(<>
         <div className={`${Styles.GamepadTestContainer}`}>
@@ -146,15 +135,15 @@ const GamepadTest = () => {
         </table>
         <br/>
         <div className={Styles.JoystickContainer}>
-            <p>Left joystick x:</p>
-            <p>x={joystickStates.left.x}</p>
-            <p>y={joystickStates.left.y}</p>
+            <p>Left analog stick:</p>
+            <p>x={analogStickStates.left.x}</p>
+            <p>y={analogStickStates.left.y}</p>
             <hr/>
-            <p>Right joystick x:</p>
-            <p>x={joystickStates.right.x}</p>
-            <p>y={joystickStates.right.y}</p>
+            <p>Right analog stick:</p>
+            <p>x={analogStickStates.right.x}</p>
+            <p>y={analogStickStates.right.y}</p>
         </div>
     </>);
 };
 
-export default GamepadTest;
+export default GamepadComponent;
