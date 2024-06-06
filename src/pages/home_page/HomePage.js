@@ -1,21 +1,21 @@
 // functional
-import React, { useContext } from "react";
-import { CurrentUserContext } from "../../App";
+import React from "react";
 // components
 //import NavPie from "./NavPie";
 import GamepadComponent from "./GamepadComponent";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 const HomePage = () => {
-    const currentUser = useContext(CurrentUserContext);
+    const currentUser = useCurrentUser();
 
-    return (
+    return(<>
         <div>
             <h1>Home page</h1>
             <p>user: {currentUser?.username}</p>
             <GamepadComponent />
         </div>
-    )
+    </>)
 };
 
 export default HomePage;

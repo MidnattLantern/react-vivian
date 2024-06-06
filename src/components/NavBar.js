@@ -1,7 +1,6 @@
 // functional
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { CurrentUserContext } from "../App";
 
 // styles
 import styles from '../styles/NavBar.module.css'
@@ -9,10 +8,11 @@ import "../global.css";
 
 // bootstrap and components
 import {Nav} from 'react-bootstrap';
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 
 const NavBar = () => {
-    const currentUser = useContext(CurrentUserContext);
+    const currentUser = useCurrentUser();
 
     const nonAuthenticatedOptions = <>
         <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signin">Sign in</NavLink>
