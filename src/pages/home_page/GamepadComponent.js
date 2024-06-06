@@ -1,5 +1,6 @@
 // functional
-import React, { useEffect, useState, useRef } from 'react';
+//import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 // styles
 import Styles from "../../styles/GamepadComponent.module.css";
 import "../../global.css"
@@ -23,8 +24,14 @@ import {ReactComponent as RootMenuSVG} from "../../assets/gamepad/RootMenu.svg";
 import {ReactComponent as LeftAnalogSVG} from "../../assets/gamepad/LeftAnalog.svg";
 import {ReactComponent as RightAnalogSVG} from "../../assets/gamepad/RightAnalog.svg";
 
+import { useButtonStates } from '../../contexts/GamepadContext';
+import { useAnalogStickStates } from '../../contexts/GamepadContext';
+
 const GamepadComponent = () => {
-    const [buttonStates, setButtonStates] = useState({
+    const buttonStates = useButtonStates();
+    const analogStickStates = useAnalogStickStates();
+
+/*    const [buttonStates, setButtonStates] = useState({
         0: false,
         1: false,
         2: false,
@@ -47,9 +54,9 @@ const GamepadComponent = () => {
         left: { x: 0, y: 0 },
         right: { x: 0, y: 0 },
     });
-
+*/
     const myRef = useRef(null);
-    
+/*    
     const pollGamepad = () => {
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
         let newButtonStates = { ...buttonStates };
@@ -81,11 +88,11 @@ const GamepadComponent = () => {
         setAnalogStickStates(newanalogStickStates);
     };
     useEffect(() => {
-        const interval = setInterval(pollGamepad, 1);
+        const interval = setInterval(pollGamepad, 50);
         return () => {
             clearInterval(interval);
         };
-    }, [buttonStates, analogStickStates]);
+    }, [buttonStates, analogStickStates]);*/
 
     return(<>
         <div className={`${Styles.GamepadTestContainer}`}>
