@@ -61,6 +61,18 @@ const GamepadProvider = ({children}) => {
                     y: gp.axes[3],
                 };
             }
+/*
+            // Pulse Works on Safari
+            if (gp.vibrationActuator) {
+                if (newButtonStates[0]) { // Example: rumble on button 0 press
+                    gp.vibrationActuator.playEffect("dual-rumble", {
+                        duration: 50,
+                        strongMagnitude: 1.0,
+                        weakMagnitude: 0.5
+                    });
+                }
+            }
+*/
         }
         setButtonStates(newButtonStates);
         setAnalogStickStates(newanalogStickStates);
@@ -70,7 +82,7 @@ const GamepadProvider = ({children}) => {
         return () => {
             clearInterval(interval);
         };
-    }, [buttonStates, analogStickStates]);
+    }, []);
 
     return(<>
         <ButtonStatesContext.Provider value={buttonStates}>
