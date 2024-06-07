@@ -1,7 +1,7 @@
 // functional
 import React from "react";
 // components
-import NavPie from "./NavPie";
+import NavPieVer2 from "./NavPieVer2";
 import GamepadComponent from "./GamepadComponent";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -14,7 +14,7 @@ const HomePage = () => {
         <div>
             <h1>Home page</h1>
             <p>user: {currentUser?.username}</p>
-            <NavPie />
+            <NavPieVer2 />
             <GamepadComponent />
         </div>
     </>)
