@@ -12,7 +12,7 @@ import NavBar from './components/NavBar';
 import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
-import AddressPage from "./pages/authentication/AddressPage";
+import AddressPage from "./pages/address_book/AddressPage";
 import HomePage from "./pages/home_page/HomePage";
 
 function App() {
