@@ -1,0 +1,8 @@
+.AddressPageContainer{
+    border: 1px solid var(--white);
+    height: 100%;
+    padding: 20px;
+/*    background-color: var(--container-black);*/
+    border: 1px solid var(--container-border);
+    border-radius: 5px;
+}

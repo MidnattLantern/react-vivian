@@ -9,10 +9,11 @@ import './global.css';
 
 // bootstrap and components
 import NavBar from './components/NavBar';
-import HomePage from "./pages/home_page/HomePage";
 import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
+import AddressPage from "./pages/authentication/AddressPage";
+import HomePage from "./pages/home_page/HomePage";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path="/signup" render={() => <SignUpForm />} />
                 <Route exact path="/signout" render={() => <SignOutPage />} />
                 <Route exact path="/" render={() => <HomePage />} />
+                <Route exact path="/address" render={() => <AddressPage />} />
                 <Route path="/" render={() => <h1>Page not found</h1>} />
               </Switch>
             </div>

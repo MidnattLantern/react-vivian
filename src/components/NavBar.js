@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // styles
-import styles from '../styles/NavBar.module.css'
+import Styles from '../styles/NavBar.module.css'
 import "../global.css";
 
 // bootstrap and components
@@ -15,22 +15,20 @@ const NavBar = () => {
     const currentUser = useCurrentUser();
 
     const nonAuthenticatedOptions = <>
-        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signin">Sign in</NavLink>
-        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signup">Sign up</NavLink>
+        <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/signin">Sign in</NavLink>
+        <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/signup">Sign up</NavLink>
     </>
 
     const authenticatedOptions = <>
-        <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signout">Sign out</NavLink>
+        <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/signout">Sign out</NavLink>
+        <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/address">Address</NavLink>
     </>
 
     return ( <>
-        <div className={styles.NavBarContainer}>
+        <div className={Styles.NavBarContainer}>
             <Nav>
-                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"> Home</NavLink>
-                
-                
+                <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/"> Home</NavLink>
                 {currentUser ? (authenticatedOptions) : (nonAuthenticatedOptions)}
-                
             </Nav>
         </div>
     </> )
