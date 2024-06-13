@@ -9,7 +9,7 @@ import Styles from "../../styles/AddressList.module.css";
 import "../../global.css";
 
 
-const AddressList = () => {
+const AddressList = ({ setAction }) => {
     const currentUser = useCurrentUser();
     const [addressList, setAddressList] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -30,6 +30,17 @@ const AddressList = () => {
 
     return (<>
         <div className={Styles.AddressListContainer}>
+
+            <button onClick={() => {setAction("create")}}>
+                Create
+            </button>
+            <button onClick={() => {setAction("edit")}}>
+                Edit
+            </button>
+            <button onClick={() => {setAction("detail")}}>
+                Detail
+            </button>
+
             <p>currentUser?.pk: {currentUser?.pk ? (currentUser?.pk) : (<>couldn't load</>)}</p>
             <p>hasLoaded: {hasLoaded ? (<>true</>) : (<>false</>)}</p>
             {addressList.length ? (<>
