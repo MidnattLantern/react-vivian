@@ -3,11 +3,11 @@ import React from "react";
 import Styles from "../../../styles/AddressEdit.module.css";
 import "../../../global.css";
 
-const AddressEdit = () => {
+const AddressEdit = ({ addressFocus }) => {
 
     return (<>
         <div className={Styles.AddressEditContainer}>
-            <p>AddressEdit Component</p>
+            <h1>Edit {addressFocus}</h1>
         </div>
     </>);
 };
