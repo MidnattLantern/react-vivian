@@ -14,6 +14,17 @@ const AddressList = ({ setAction }) => {
     const [addressList, setAddressList] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
 
+    const refresh = async () => {
+        try {
+            const { data } = await axiosReq.get(`/address_book/?owner__userauthentication=${currentUser?.pk}`);
+            setAddressList(data);
+            setHasLoaded(true);
+            console.log("refresh address list")
+        } catch(err){
+            console.log(err);
+        };
+    };
+
     useEffect(() => {
         const fetchAddressList = async () => {
             try {
@@ -39,6 +50,9 @@ const AddressList = ({ setAction }) => {
             </button>
             <button onClick={() => {setAction("detail")}}>
                 Detail
+            </button>
+            <button onClick={refresh}>
+                Refresh
             </button>
 
             <p>currentUser?.pk: {currentUser?.pk ? (currentUser?.pk) : (<>couldn't load</>)}</p>

@@ -6,7 +6,7 @@ import "../../../global.css";
 import { axiosReq } from "../../../api/axiosDefaults";
 import { Form } from "react-bootstrap";
 
-const AddressCreate = ({ setAction }) => {
+const AddressCreate = ({ setAction, fetchAddressList }) => {
     const [errors, setErrors] = useState({});
     const [addressData, setAddressData] = useState({
         partnering_end: "",
@@ -28,7 +28,9 @@ const AddressCreate = ({ setAction }) => {
         formData.append("partnering_end", partnering_end);
 
         try {
-            await axiosReq.post("/address_book/", formData);
+            const { data } = await axiosReq.post("/address_book/", formData);
+            fetchAddressList();
+            setAction(null);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
