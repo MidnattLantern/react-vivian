@@ -1,0 +1,10 @@
+h1{
+    font-family: Teko;
+}
+
+.HomePageContainer{
+    border: 2px solid var(--container-border);
+    border-radius: 3px;
+    padding: 20px;
+    height: 100%;
+}

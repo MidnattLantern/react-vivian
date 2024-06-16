@@ -1,9 +1,11 @@
+// functino
 import React from "react";
 import { Container } from "react-bootstrap";
-import styles from "../../styles/SignOutPage.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+// styles
+import Styles from "../../styles/Authentication.module.css";
 
 const SignOutPage = () => {
     const setCurrentUser = useSetCurrentUser();
@@ -21,14 +23,12 @@ const SignOutPage = () => {
     };
 
     return (
-        <div>
-            <Container>
-                <div className={styles.AuthenticationIsland}>
-                    <h1>Sign out</h1>
-                    <br/>
-                    <button  className={styles.Button} onClick={handleSignOut}>Sign out</button>
-                </div>
-            </Container>
+        <div className={Styles.AuthenticationContainer}>
+            <div className={Styles.AuthenticationWindow}>
+                <h1>SIGN OUT</h1>
+                <br/>
+                <button  className={Styles.Button} onClick={handleSignOut}>SIGN OUT</button>
+            </div>
         </div>
     )
 };

@@ -1,18 +1,17 @@
 // functional
 import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-// components
-
-
-
+// styles
+import styles from "../../styles/HomePage.module.css";
+import "../../global.css";
 
 const HomePage = () => {
     const currentUser = useCurrentUser();
 
     return(<>
-        <div>
-            <h1>Home page</h1>
-            <p>user: {currentUser?.username}</p>
+        <div className={styles.HomePageContainer}>
+            <h1>HOME PAGE</h1>
+            <p>User: {currentUser?.username}</p>
         </div>
     </>)
 };

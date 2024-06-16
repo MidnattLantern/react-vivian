@@ -4,7 +4,7 @@ p {
 
 .Button {
     border: none;
-    background-color: rgb(255, 100, 125);
+    background-color: var(--theme);
     color: rgb(30, 30, 30);
     font-weight: 700;
     border-radius: 3px;
@@ -12,17 +12,18 @@ p {
     height: 40px;
 }
 .Button:hover {
-    color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px rgb(255, 100, 160);
+    color: var(--white);
+    box-shadow: 0px 0px 10px var(--theme);
 }
 .Button:active {
-    background-color: rgb(255, 100, 160);
+    background-color: var(--theme);
 }
 
 .AuthenticationIsland {
-    border: 1px solid rgb(50, 50, 50);
-    background-color: rgb(30, 30, 30);
-    border-radius: 5px;
+    border: 2px solid var(--container-border);
+    /*background-color: var(--container-black);*/
+    background-color: none;
+    border-radius: 3px;
     width: 500px;
     align-items: center;
     margin: auto;
@@ -43,29 +44,29 @@ p {
 
 .Anchor {
     text-decoration: underline;
-    color: rgb(255, 100, 125);
+    color: var(--theme);
 }
 .Anchor:hover {
-    color: rgb(200, 200, 200)
+    color: var(--white);
 }
 
 .FormControl {
-    background-color: rgb(30, 30, 30);
-    color: rgb(200, 200, 200);
+    background-color: var(--container-black);
+    color: var(--white);
     border-radius: 3px;
-    border: 2px solid rgb(50, 50, 50);
+    border: 2px solid var(--container-border);
 }
 .FormControl:focus {
-    background-color: rgb(0, 0, 0);
-    color: rgb(200, 200, 200);
-    border: 2px solid rgb(255, 100, 125);
+    background-color: var(--void);
+    color: var(--white);
+    border: 2px solid var(--theme);
     box-shadow: none;
     border-radius: 3px;
 }
 .FormControl:hover {
-    border: 2px solid rgb(255, 100, 125);
-    box-shadow: 0px 0px 5px rgb(255, 100, 125);
+    border: 2px solid var(--theme);
+box-shadow: none;
 }
 .FormControl::placeholder {
-    color: rgb(200, 200, 200);
+    color: var(--white);
 }

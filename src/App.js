@@ -28,7 +28,7 @@ function App() {
                 <Route exact path="/signout" render={() => <SignOutPage />} />
                 <Route exact path="/" render={() => <HomePage />} />
                 <Route exact path="/address" render={() => <AddressPage />} />
-                <Route path="/" render={() => <h1>Page not found</h1>} />
+                <Route path="/" render={() => <h1>404 PAGE NOT FOUND</h1>} />
               </Switch>
             </div>
             <div className={styles.NavBarContainer}>

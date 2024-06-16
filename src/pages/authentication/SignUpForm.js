@@ -1,8 +1,11 @@
+// functional
 import React, { useState } from "react";
-import { Container, Form } from "react-bootstrap";
-import styles from "../../styles/SignUpForm.module.css"
+import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// styles
+import Styles from "../../styles/Authentication.module.css";
+import "../../global.css";
 
 const SignUpForm = () => {
 
@@ -50,62 +53,56 @@ const SignUpForm = () => {
         });
     }
 
-    return (
-        <div>
-            <Container>
-                <Form className={styles.AuthenticationIsland} onSubmit={handleSubmit}>
-                    <h1>Sign up</h1>
-                    <br/>
+    return (<>
+        <div className={Styles.AuthenticationContainer}>
+            <Form onSubmit={handleSubmit} className={Styles.AuthenticationWindow}>
+                <h1>SIGN UP</h1>
+                <br/>
 
-                    <Form.Group>
-                        <Form.Control
-                        className={styles.FormControl}
-                        name="username"
-                        type="text"
-                        placeholder={"Username..." + errors.username}
-                        value={username}
-                        onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <br/>
+                <Form.Group>
+                    <Form.Control
+                    className={Styles.FormControl}
+                    name="username"
+                    type="text"
+                    placeholder={"Username..." + errors.username}
+                    value={username}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                <br/>
 
-                    <Form.Group>
-                        <Form.Control
-                        className={styles.FormControl}
-                        name="password1"
-                        type="password"
-                        placeholder={"Password..." + errors.password1}
-                        value={password1}
-                        onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <br/>
+                <Form.Group>
+                    <Form.Control
+                    className={Styles.FormControl}
+                    name="password1"
+                    type="password"
+                    placeholder={"Password..." + errors.password1}
+                    value={password1}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                <br/>
 
-                    <Form.Group>
-                        <Form.Control
-                        className={styles.FormControl}
-                        name="password2"
-                        type="password"
-                        placeholder={"Confirm Password..." + errors.password2}
-                        value={password2}
-                        onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <hr/>
+                <Form.Group>
+                    <Form.Control
+                    className={Styles.FormControl}
+                    name="password2"
+                    type="password"
+                    placeholder={"Confirm Password..." + errors.password2}
+                    value={password2}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                <br/>
 
-                    <div className={styles.SignUpDiv}>
-                        <button className={styles.Button}>
-                            Sign up
-                        </button>
-                        <p className={styles.SignUpParagraph}>
-                            or <a href="signin" className={styles.Anchor}>Sign in</a>
-                        </p>
-                    </div>
-
-                </Form>
-            </Container>
+                <div>
+                    <button className={Styles.Button}>
+                        SIGN UP
+                    </button>
+                </div>
+            </Form>
         </div>
-    )
+    </>)
 };
 
 export default SignUpForm;

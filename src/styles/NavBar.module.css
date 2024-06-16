@@ -1,19 +1,27 @@
 .NavBarContainer {
-    border: 1px solid var(--container-border);
-    border-radius: 5px;
-    background-color: var(--container-black);
+    border: 2px solid var(--container-border);
+    border-radius: 3px;
+    background:
+        linear-gradient(
+            0deg, 
+            rgba(50,50,50,0.5) 0%,
+            rgba(50,50,50,1) 100%
+        ),
+        url("../assets/GUI/diagonal_pattern.svg");
+    box-shadow: 0px 0px 15px 0px var(--container-border);
     height: 100%;
 }
 .NavBarButton {
-    border: 2px solid var(--void);
-    border-radius: 3px;
-    color: var(--white);
+    border: 1px solid var(--container-light);
+    border-radius: 1px;
+    color: var(--container-light);
     margin: auto;
     margin-top: 20px;
     padding: 5px;
     text-decoration: none;
     width: 100px;
     text-align: center;
+    font-size: 15px;
 }
 .NavBarButton:hover {
     color: var(--theme);
@@ -22,6 +30,11 @@
     .NavBarContainer {
         display: flex;
         justify-content: space-evenly;
+        background: linear-gradient(
+            0deg, 
+            rgba(50,50,50,1) 0%,
+            rgba(50,50,50,1) 100%
+        ); 
     }
     .NavBarButton {
         margin: 5px;

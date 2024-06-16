@@ -1,9 +1,12 @@
+// functional
 import React, { useState } from "react";
-import { Container, Form } from "react-bootstrap";
-import styles from "../../styles/SignInForm.module.css"
+import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+// styles
+import Styles from "../../styles/Authentication.module.css";
+import "../../global.css";
 
 const SignInForm = () => {
     const setCurrentUser = useSetCurrentUser();
@@ -46,47 +49,41 @@ const SignInForm = () => {
     };
 
     return (
-        <div>
-            <Container>
-                <Form className={styles.AuthenticationIsland} onSubmit={handleSubmit}>
-                    <h1>Sign in</h1>
-                    <br/>
+        <div className={Styles.AuthenticationContainer}>
+            <Form onSubmit={handleSubmit} className={Styles.AuthenticationWindow}>
+                <h1>SIGN IN</h1>
+                <br/>
 
-                    <Form.Group>
-                        <Form.Control
-                        className={styles.FormControl}
-                        name="username"
-                        type="text"
-                        placeholder={"Username..." + placeholder.username}
-                        value={username}
-                        onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <br/>
+                <Form.Group>
+                    <Form.Control
+                    className={Styles.FormControl}
+                    name="username"
+                    type="text"
+                    placeholder={"Username..." + placeholder.username}
+                    value={username}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                <br/>
 
-                    <Form.Group>
-                        <Form.Control
-                        className={styles.FormControl}
-                        name="password"
-                        type="password"
-                        placeholder={"Password..." + placeholder.password}
-                        value={password}
-                        onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <hr/>
+                <Form.Group>
+                    <Form.Control
+                    className={Styles.FormControl}
+                    name="password"
+                    type="password"
+                    placeholder={"Password..." + placeholder.password}
+                    value={password}
+                    onChange={handleChange}
+                    />
+                </Form.Group>
+                <br/>
 
-                    <div className={styles.SignInDiv}>
-                        <button className={styles.Button}>
-                            Sign in
-                        </button>
-                        <p className={styles.SignInParagraph}>
-                            or <a href="signup" className={styles.Anchor}>Sign up</a>
-                        </p>
-                    </div>
-
-                </Form>
-            </Container>
+                <div className={Styles.SignInDiv}>
+                    <button className={Styles.Button}>
+                        SIGN IN
+                    </button>
+                </div>
+            </Form>
         </div>
     )
 };
