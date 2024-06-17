@@ -15,7 +15,8 @@
         0deg, 
         rgba(50,50,50,0.5) 0%,
         rgba(50,50,50,1) 100%
-    );
+    ),
+    url("../assets/GUI/diagonal_pattern.svg");
     color: var(--container-light);
     border-radius: 5px;
     width: 450px;

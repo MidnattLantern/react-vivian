@@ -1,3 +1,14 @@
 .AddressEditContainer{
-    border: 1px solid var(--white);
+    border: 1px solid var(--container-border);
+    border-radius: 5px;
+    height: 100%;
+    padding: 25px;
+    background: linear-gradient(
+        0deg, 
+        rgba(50,50,50,0.5) 0%,
+        rgba(50,50,50,1) 100%
+    ),
+    url("../assets/GUI/diagonal_pattern.svg");
+    box-shadow: 0px 0px 15px 0px var(--container-border);
+    color: var(--white);
 }

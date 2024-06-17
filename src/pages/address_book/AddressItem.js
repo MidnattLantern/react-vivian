@@ -22,7 +22,7 @@ const AddressItem = ({setAddressFocus, setAction, ...props}) => {
             <br/>
             <button onClick={() => {setActionAndFocus()}}>{partnering_end}</button>
             <p>id: {id}</p>
-        </>)};
+        </>)}
     </>);
 };
 

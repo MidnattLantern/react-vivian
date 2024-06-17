@@ -67,6 +67,7 @@ const AddressPage = () => {
             <p>currentUser?.pk: {currentUser?.pk ? (currentUser?.pk) : (<>couldn't load</>)}</p>
             <p>hasLoaded: {hasLoaded ? (<>true</>) : (<>false</>)}</p>
             <p>addressFocus: {addressFocus}</p>
+            <h1>Address list</h1>
             {addressList.length ? (<>
                 <InfiniteScroll
                 children={addressList.map((address) => (<>

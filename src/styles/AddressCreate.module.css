@@ -1,66 +1,73 @@
 .AddressCreateContainer{
-    border: 1px solid var(--white);
+    border: 1px solid var(--container-border);
+    border-radius: 5px;
     height: 100%;
     padding: 25px;
-}
-
-p {
-    margin: 0px;
+    background: linear-gradient(
+        0deg, 
+        rgba(50,50,50,0.5) 0%,
+        rgba(50,50,50,1) 100%
+    ),
+    url("../assets/GUI/diagonal_pattern.svg");
+    box-shadow: 0px 0px 15px 0px var(--container-border);
+    color: var(--white);
 }
 
 tr {
-    border-bottom: 2px solid rgb(50, 50, 50);
+    border-bottom: 1px solid var(--white);
 }
 
 td {
-    color: rgb(200, 200, 200);
+    color: var(--white);
     padding-top: 20px;
     padding-right: 20px;
-    font-family: Jost, sans-serif;
+    font-family: Inter, sans-serif;
 }
 
 .Button, .ButtonDisabled {
-    border: 2px solid rgb(50, 50, 50);
-    background-color: rgb(30, 30, 30);
-    color: rgb(200, 200, 200);
+    border: 2px solid var(--grey);
+    background-color: var(--grey);
+    color: var(--white);
     border-radius: 5px;
     text-align: center;
     padding: 5px;
     width: 100px;
     margin: 10px;
-    font-family: Jost, sans-serif;
 }
 .Button:hover {
-    color: rgb(255, 175, 100);
-    border: 2px solid rgb(255, 175, 100);
+    border: 2px solid var(--grey);
+    color: var(--theme);
+    box-shadow: none;
 }
 .ButtonDisabled
 
 .Anchor {
     text-decoration: underline;
-    color: rgb(255, 175, 100);
+    color: var(--theme);
 }
 .Anchor:hover {
-    color: rgb(200, 200, 200)
+    color: var(--white);
 }
 
 .FormControl {
-    background-color: rgb(30, 30, 30);
-    color: rgb(200, 200, 200);
+    background-color: rgba(0,0,0,0);
+    color: var(--white);
+    border-radius: 0px;
     border: none;
+    border-bottom: 1px none var(--container-light);
 }
 .FormControl:focus {
-    background-color: rgb(30, 30, 30);
-    color: rgb(200, 200, 200);
+    background-color: rgba(0,0,0,0);
+    color: var(--theme);
+    border-bottom: 1px none var(--theme);
     box-shadow: none;
 }
 .FormControl:hover {
-    border: none;
+    border-bottom: 1px none var(--theme);
     box-shadow: none;
-    color: rgb(255, 175, 100);
 }
 .FormControl::placeholder {
-    color: rgb(100, 100, 100);
+    color: rgb(150, 150, 150);
 }
 
 .SaveButtonContainer {

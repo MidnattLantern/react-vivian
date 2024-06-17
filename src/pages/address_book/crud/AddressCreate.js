@@ -41,7 +41,7 @@ const AddressCreate = ({ setAction, fetchAddressList }) => {
 
     return (<>
         <div className={Styles.AddressCreateContainer}>
-            <h1>New Address</h1>
+            <h1>NEW ADDRESS</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <table>
