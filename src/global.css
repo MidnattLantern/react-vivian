@@ -1,9 +1,9 @@
 :root {
     --theme: rgb(255, 110, 85);
-    --white: rgb(200, 200, 200);
-    --grey: rgb(75, 75, 75);
-    --container-black: rgb(50, 50, 50);
-    --container-light: rgb(200, 200, 200);
-    --container-border: rgb(75, 75, 75);
+    --white: rgb(210, 200, 200);
+    --grey: rgb(75, 75, 80);
+    --container-black: rgb(50, 50, 60);
+    --container-light: rgb(210, 200, 200);
+    --container-border: rgb(75, 75, 85);
     --void: rgb(0, 0, 0);
 }

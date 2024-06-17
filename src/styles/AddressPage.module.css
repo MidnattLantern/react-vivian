@@ -1,7 +1,6 @@
 .AddressPageContainer{
     border: 2px solid var(--container-border);
     height: 100%;
-    padding: 20px;
     border-radius: 5px;
     display: flex;
     /* min-width 601px */
@@ -12,10 +11,46 @@
 
 .ListContainer,
 .CrudContainer{
-    border: 1px none var(--white);
-
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 50%;
-    height: 100%;
+    margin: 20px;
+}
+.ListContainer{
+    margin-right: 10px;
+}
+.CrudContainer{
+    margin-left: 10px;
+}
+
+.AddressHeaderDiv{
+    height: 20%;
+}
+.AddressListDiv{
+    height: 80%;
+    background: linear-gradient(
+        0deg, 
+        rgba(50,50,50,0.5) 0%,
+        rgba(50,50,50,1) 100%
+    ),
+    url("../assets/GUI/diagonal_pattern.svg");
+    border-radius: 3px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.CreateButton{
+    width: 90%;
+    height: 60px;
+    margin-top: 20px;
+    border: 1px solid var(--container-light);
+    border-radius: 2px;
+    color: var(--white);
+    background: none;
+}
+.CreateButton:hover{
+    color: var(--theme);
 }
 
 @media (max-width: 600px) {
@@ -26,5 +61,6 @@
     .CrudContainer{
         width: 100%;
         height: 50%;
+        margin: 0px;
     }
 }

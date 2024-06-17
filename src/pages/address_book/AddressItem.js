@@ -20,8 +20,8 @@ const AddressItem = ({setAddressFocus, setAction, ...props}) => {
             <p>partnering_end: {partnering_end}</p>
         </>) : (<>
             <br/>
-            <button onClick={() => {setActionAndFocus()}}>{partnering_end}</button>
-            <p>id: {id}</p>
+            <button className={Styles.ListButton} onClick={() => {setActionAndFocus()}}>{partnering_end}</button>
+            <br/>
         </>)}
     </>);
 };

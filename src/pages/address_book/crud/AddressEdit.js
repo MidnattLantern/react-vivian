@@ -7,7 +7,7 @@ const AddressEdit = ({ addressFocus }) => {
 
     return (<>
         <div className={Styles.AddressEditContainer}>
-            <h1>Edit {addressFocus}</h1>
+            <h1>EDIT {addressFocus}</h1>
         </div>
     </>);
 };

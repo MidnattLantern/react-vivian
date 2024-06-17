@@ -1,4 +1,5 @@
 Link to React Bootstrap:
 https://react-bootstrap.github.io/
 
-Theme font-family: "Teko"
+Theme font: "Teko"
+Vanilla font: "Inter"

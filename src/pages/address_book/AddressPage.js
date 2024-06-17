@@ -52,33 +52,39 @@ const AddressPage = () => {
     return (<>
         <div className={Styles.AddressPageContainer}>
             <div className={Styles.ListContainer}>
-            <button onClick={() => {setAction("create")}}>
-                Create
-            </button>
-            <button onClick={() => {setAction("edit")}}>
-                Edit
-            </button>
-            <button onClick={() => {setAction("detail")}}>
-                Detail
-            </button>
-            <button onClick={fetchAddressList}>
-                Refresh
-            </button>
-            <p>currentUser?.pk: {currentUser?.pk ? (currentUser?.pk) : (<>couldn't load</>)}</p>
-            <p>hasLoaded: {hasLoaded ? (<>true</>) : (<>false</>)}</p>
-            <p>addressFocus: {addressFocus}</p>
-            <h1>Address list</h1>
-            {addressList.length ? (<>
-                <InfiniteScroll
-                children={addressList.map((address) => (<>
-                    <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
-                </>))}
-                dataLength={addressList.length}
-                loader={<h1>loading...</h1>}
-                hasMore={!!addressList.next}
-                next={() => fetchMoreData(addressList, setAddressList)}
-                />
-            </>) : (null)}
+                <div className={Styles.AddressHeaderDiv} >
+                    <button onClick={() => {setAction("create")}}>
+                        Create
+                    </button>
+                    <button onClick={() => {setAction("edit")}}>
+                        Edit
+                    </button>
+                    <button onClick={() => {setAction("detail")}}>
+                        Detail
+                    </button>
+                    <button onClick={fetchAddressList}>
+                        Refresh
+                    </button>
+                    <h1>ADDRESS BOOK</h1>
+                </div>
+
+                    <div className={Styles.AddressListDiv}>
+                        <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
+                            + NEW ADDRESS
+                        </button>
+
+                    {addressList.length ? (<>
+                        <InfiniteScroll
+                        children={addressList.map((address) => (<>
+                            <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
+                        </>))}
+                        dataLength={addressList.length}
+                        loader={<h1>loading...</h1>}
+                        hasMore={!!addressList.next}
+                        next={() => fetchMoreData(addressList, setAddressList)}
+                        />
+                    </>) : (null)}
+                    </div>
             </div>
             <div className={Styles.CrudContainer}>
                 {renderAction(action)}
