@@ -20,7 +20,7 @@ const HomePage = () => {
 
             <div>
                 <button onClick={toggleVisibility}>Toggle Div</button>
-                <div className={`${Styles.SlidingDiv} ${isVisible ? Styles.Visible : ''}`}></div>
+                <div className={`${Styles.SlidingDiv} ${isVisible ? Styles.Visible : ''}`} />
             </div>
 
         </div>

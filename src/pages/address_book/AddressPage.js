@@ -50,37 +50,41 @@ const AddressPage = () => {
             case 'edit':
                 return <AddressEdit addressFocus={addressFocus} setAction={setAction} key={addressFocus} />;
             default:
-                return  <NoCrudAction/>;
+                return <NoCrudAction/>;
         };
     };
 
     return (<>
-        <div className={Styles.AddressPageContainer}>
-            <div className={Styles.ListContainer}>
-                <div className={Styles.AddressHeaderDiv} >
-                    <h1>ADDRESS BOOK</h1>
+        {hasLoaded ? (<>
+            <div className={`${Styles.AddressPageContainer}`}>
+                <div className={Styles.ListContainer}>
+                    <div className={Styles.AddressHeaderDiv} >
+                        <h1>ADDRESS BOOK</h1>
+                    </div>
+                    <div className={Styles.AddressListDiv}>
+                        <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
+                            + NEW ADDRESS
+                        </button>
+                        {addressList.length ? (<>
+                            <InfiniteScroll
+                            children={addressList.map((address) => (<>
+                                <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
+                            </>))}
+                            dataLength={addressList.length}
+                            loader={<h1>loading...</h1>}
+                            hasMore={!!addressList.next}
+                            next={() => fetchMoreData(addressList, setAddressList)}
+                            />
+                        </>) : (null)}
+                    </div>
                 </div>
-                <div className={Styles.AddressListDiv}>
-                    <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
-                        + NEW ADDRESS
-                    </button>
-                    {addressList.length ? (<>
-                        <InfiniteScroll
-                        children={addressList.map((address) => (<>
-                            <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
-                        </>))}
-                        dataLength={addressList.length}
-                        loader={<h1>loading...</h1>}
-                        hasMore={!!addressList.next}
-                        next={() => fetchMoreData(addressList, setAddressList)}
-                        />
-                    </>) : (null)}
+                <div className={`${Styles.CrudContainer} ${action === null ? Styles.NotVisible : ''}`}>
+                    {renderAction(action)}
                 </div>
             </div>
-            <div className={Styles.CrudContainer}>
-                {renderAction(action)}
-            </div>
-        </div>
+        </>) : (<>
+            <h1>Loading...</h1>
+        </>)}
     </>);
 };
 

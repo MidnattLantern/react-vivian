@@ -3,8 +3,7 @@ h1{
 }
 
 .HomePageContainer{
-    border: 2px solid var(--container-border);
-    border-radius: 3px;
+    border: 2px dashed var(--container-border);
     padding: 20px;
     height: 100%;
 }
