@@ -22,9 +22,12 @@
     width: 100px;
     text-align: center;
     font-size: 15px;
+    transform: skewY(-1.5deg);
 }
 .NavBarButton:hover {
+    border: 1px solid var(--theme);
     color: var(--theme);
+    background-color: rgba(0,0,0,0.2);
 }
 @media (max-width: 600px) {
     .NavBarContainer {
@@ -38,5 +41,6 @@
     }
     .NavBarButton {
         margin: 5px;
+        transform: skewX(-2.0deg);
     }
 }

@@ -1,11 +1,13 @@
 .ListButton{
     width: 90%;
     height: 60px;
-    border: 1px solid var(--container-light);
-    border-radius: 2px;
+    border: 1.5px solid var(--container-light);
+    border-radius: 1px;
     color: var(--white);
     background: none;
 }
 .ListButton:hover{
+    border: 1.5px solid var(--theme);
     color: var(--theme);
+    background-color: rgba(0,0,0,0.2);
 }
