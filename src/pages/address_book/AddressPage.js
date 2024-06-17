@@ -12,6 +12,11 @@ import AddressDetail from "./crud/AddressDetail";
 import AddresssCreate from "./crud/AddressCreate";
 import AddressEdit from "./crud/AddressEdit";
 
+const NoCrudAction = () => {
+    return(<>
+        <div className={Styles.NoCrudAction}/>
+    </>);
+};
 
 const AddressPage = () => {
     const [action, setAction] = useState(null);
@@ -45,7 +50,7 @@ const AddressPage = () => {
             case 'edit':
                 return <AddressEdit addressFocus={addressFocus} setAction={setAction} key={addressFocus} />;
             default:
-                return null;
+                return  <NoCrudAction/>;
         };
     };
 
@@ -53,26 +58,12 @@ const AddressPage = () => {
         <div className={Styles.AddressPageContainer}>
             <div className={Styles.ListContainer}>
                 <div className={Styles.AddressHeaderDiv} >
-                    <button onClick={() => {setAction("create")}}>
-                        Create
-                    </button>
-                    <button onClick={() => {setAction("edit")}}>
-                        Edit
-                    </button>
-                    <button onClick={() => {setAction("detail")}}>
-                        Detail
-                    </button>
-                    <button onClick={fetchAddressList}>
-                        Refresh
-                    </button>
                     <h1>ADDRESS BOOK</h1>
                 </div>
-
-                    <div className={Styles.AddressListDiv}>
-                        <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
-                            + NEW ADDRESS
-                        </button>
-
+                <div className={Styles.AddressListDiv}>
+                    <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
+                        + NEW ADDRESS
+                    </button>
                     {addressList.length ? (<>
                         <InfiniteScroll
                         children={addressList.map((address) => (<>
@@ -84,7 +75,7 @@ const AddressPage = () => {
                         next={() => fetchMoreData(addressList, setAddressList)}
                         />
                     </>) : (null)}
-                    </div>
+                </div>
             </div>
             <div className={Styles.CrudContainer}>
                 {renderAction(action)}

@@ -23,6 +23,12 @@
 .CrudContainer{
     margin-left: 10px;
 }
+.NoCrudAction{
+    border: 2.5px dashed var(--grey);
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+}
 
 .AddressHeaderDiv{
     height: 20%;
