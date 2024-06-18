@@ -46,17 +46,17 @@ const AddressCreate = ({ setAction, fetchAddressList }) => {
                 <Form.Group>
                     <table>
                         <tr>
-                        <td>Partnering end</td>
-                        <td>
-                            <Form.Control
-                            className={Styles.FormControl}
-                            type="text"
-                            name="partnering_end"
-                            value={partnering_end}
-                            onChange={handleChange}
-                            placeholder="Partnering End"
-                            />
-                        </td>
+                            <td>Partnering end</td>
+                            <td>
+                                <Form.Control
+                                className={Styles.FormControl}
+                                type="text"
+                                name="partnering_end"
+                                value={partnering_end}
+                                onChange={handleChange}
+                                placeholder="Partnering End"
+                                />
+                            </td>
                         </tr>
                     </table>
                 </Form.Group>

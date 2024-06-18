@@ -45,10 +45,15 @@
 }
 
 .AddressHeaderDiv{
-    height: 20%;
+    border: 1px none var(--container-border);
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 .AddressListDiv{
-    height: 80%;
+    height: 90%;
     background: linear-gradient(
         0deg, 
         rgba(50,50,50,0.5) 0%,

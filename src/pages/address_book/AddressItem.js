@@ -5,7 +5,7 @@ import Styles from "../../styles/AddressItem.module.css";
 import "../../global.css";
 
 
-const AddressItem = ({setAddressFocus, setAction, ...props}) => {
+const AddressItem = ({ setAddressFocus, setAction, ...props }) => {
     const {id, partnering_end, AddressDetail} = props;
 
     const setActionAndFocus = () => {
