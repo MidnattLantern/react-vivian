@@ -22,9 +22,9 @@ const AddressPage = () => {
     const [action, setAction] = useState(null);
     const currentUser = useCurrentUser();
     const [addressList, setAddressList] = useState({ results: [] });
-    const [addressFocus, setAddressFocus] = useState("none");
+    const [addressFocus, setAddressFocus] = useState(null);
     const [hasLoaded, setHasLoaded] = useState(false);
-
+    
     const fetchAddressList = async () => {
         try {
             const { data } = await axiosReq.get(`/address_book/?owner__profile=${currentUser?.pk}`);
@@ -36,19 +36,45 @@ const AddressPage = () => {
         };
     };
 
+    const handleDelete = () => {
+        try {
+            axiosReq.delete(`/address_book/${addressFocus}`);
+            fetchAddressList();
+            setAddressFocus(null);
+            setAction(null);
+        }catch(err){
+            console.log(err)
+        };
+     };
+
     useEffect(() => {
         fetchAddressList();
-        console.log(currentUser?.pk);
     }, [currentUser?.pk]);
     
     const renderAction = (action) => {
         switch (action) {
             case 'create':
-                return <AddresssCreate setAction={setAction} fetchAddressList={fetchAddressList} />;
+                return <AddresssCreate
+                setAction={setAction}
+                fetchAddressList={fetchAddressList}
+                setAddressFocus={setAddressFocus}
+                />;
             case 'detail':
-                return <AddressDetail addressFocus={addressFocus} setAction={setAction} key={addressFocus} />;
+                return <AddressDetail
+                setAction={setAction}
+                fetchAddressList={fetchAddressList}
+                setAddressFocus={setAddressFocus}
+                addressFocus={addressFocus}
+                key={addressFocus}
+                />;
             case 'edit':
-                return <AddressEdit addressFocus={addressFocus} setAction={setAction} key={addressFocus} />;
+                return <AddressEdit
+                setAction={setAction}
+                fetchAddressList={fetchAddressList}
+                setAddressFocus={setAddressFocus}
+                addressFocus={addressFocus}
+                key={addressFocus}
+                />;
             default:
                 return <NoCrudAction/>;
         };
@@ -60,6 +86,11 @@ const AddressPage = () => {
                 <div className={Styles.ListContainer}>
                     <div className={Styles.AddressHeaderDiv} >
                         <h1>ADDRESS BOOK</h1>
+
+                        <button onClick={fetchAddressList}>refresh</button>
+                        <p>{action}</p>
+                        <p>{addressFocus}</p>
+
                     </div>
                     <div className={Styles.AddressListDiv}>
                         <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>

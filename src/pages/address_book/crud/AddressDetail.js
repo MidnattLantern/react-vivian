@@ -5,7 +5,7 @@ import "../../../global.css";
 import AddressItem from "../AddressItem";
 import { axiosReq } from "../../../api/axiosDefaults";
 
-const AddressDetail = ({ addressFocus, setAction }) => {
+const AddressDetail = ({ addressFocus, setAddressFocus, setAction }) => {
     const [AddressDetail, setAddressDetail] = useState({ results: [] });
 
     useEffect(() => {
@@ -22,11 +22,21 @@ const AddressDetail = ({ addressFocus, setAction }) => {
         handleMount();
     }, [addressFocus]);
 
+    const handleSetEditAction = () => {
+        setAddressFocus(addressFocus);
+        setAction("edit")
+    }
+
+    const handleClose = () => {
+        setAddressFocus(null);
+        setAction(null);
+    }
+
     return(<>
         <div className={Styles.AddressDetailContainer}>
             <AddressItem {...AddressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
-            <button onClick={() => {setAction("edit")}}>Edit</button>
-            <button onClick={() => {setAction(null)}}>Close</button>
+            <button onClick={handleSetEditAction}>Edit</button>
+            <button onClick={handleClose}>Close</button>
         </div>
     </>);
 };

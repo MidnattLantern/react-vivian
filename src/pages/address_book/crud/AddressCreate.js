@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 // styles
 import Styles from "../../../styles/AddressCreate.module.css";
@@ -6,13 +6,17 @@ import "../../../global.css";
 import { axiosReq } from "../../../api/axiosDefaults";
 import { Form } from "react-bootstrap";
 
-const AddressCreate = ({ setAction, fetchAddressList }) => {
+const AddressCreate = ({ setAction, setAddressFocus, fetchAddressList }) => {
     const [errors, setErrors] = useState({});
     const [addressData, setAddressData] = useState({
         partnering_end: "",
     });
     const { partnering_end, } = addressData;
     const currentUser = useCurrentUser;
+
+    useEffect(() => {
+        setAddressFocus(null);
+    }, []);
 
     const handleChange = (event) => {
         setAddressData({
@@ -21,6 +25,11 @@ const AddressCreate = ({ setAction, fetchAddressList }) => {
         });
     };
 
+    const handleCancel = async (event) => {
+        event.preventDefault();
+        setAction(null);
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -28,7 +37,7 @@ const AddressCreate = ({ setAction, fetchAddressList }) => {
         formData.append("partnering_end", partnering_end);
 
         try {
-            const { data } = await axiosReq.post("/address_book/", formData);
+            await axiosReq.post("/address_book/", formData);
             fetchAddressList();
             setAction(null);
         } catch (err) {
@@ -66,7 +75,7 @@ const AddressCreate = ({ setAction, fetchAddressList }) => {
                 <br/>
                 <div className={Styles.SaveButtonContainer}>
                     <button className={Styles.Button} type="submit">Submit</button>
-                    <p className={Styles.Button} onClick={() => {setAction(null)}}>Cancel</p>
+                    <button className={Styles.Button} onClick={handleCancel}>Cancel</button>
                 </div>
             </Form>
         </div>

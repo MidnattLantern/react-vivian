@@ -6,7 +6,7 @@ import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import { axiosReq } from "../../../api/axiosDefaults";
 import { Form } from "react-bootstrap";
 
-const AddressEdit = ({ addressFocus, setAction, fetchAddressList, ...props }) => {
+const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressList }) => {
     const [errors, setErrors] = useState({});
     const [addressData, setAddressData] = useState({
         partnering_end: "",
@@ -71,7 +71,6 @@ const AddressEdit = ({ addressFocus, setAction, fetchAddressList, ...props }) =>
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-
         formData.append("partnering_end", partnering_end);
         formData.append("address_line1", address_line1);
         formData.append("address_line2", address_line2);
@@ -80,11 +79,10 @@ const AddressEdit = ({ addressFocus, setAction, fetchAddressList, ...props }) =>
         formData.append("contact_person_name", contact_person_name);
         formData.append("contact_phone_number", contact_phone_number);
         formData.append("contact_email", contact_email);
-
         try {
             await axiosReq.put(`/address_book/${addressFocus}`, formData);
-            setAction("detail");
             fetchAddressList();
+            setAction("detail");
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -92,6 +90,23 @@ const AddressEdit = ({ addressFocus, setAction, fetchAddressList, ...props }) =>
             };
         };
     };
+
+    const handleSetDetailAction = async (event) => {
+        event.preventDefault();
+        setAction("detail");
+        setAddressFocus(addressFocus);
+    };
+
+    const handleDelete = async () => {
+        try {
+            await axiosReq.delete(`/address_book/${addressFocus}`);
+            fetchAddressList();
+            setAddressFocus(null);
+            setAction(null);
+        }catch(err){
+            console.log(err)
+        };
+     };
 
     return (<>
         <div className={Styles.AddressEditContainer}>
@@ -208,8 +223,9 @@ const AddressEdit = ({ addressFocus, setAction, fetchAddressList, ...props }) =>
 
             </Form>
             <button onClick={handleSubmit}>Save Changes</button>
-            <button onClick={() => {setAction("detail")}}>Discard Changes</button>
+            <button onClick={handleSetDetailAction}>Discard Changes</button>
         </div>
+        <button onClick={handleDelete}>Delete test</button>
     </>);
 };
 
