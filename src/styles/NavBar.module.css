@@ -4,8 +4,8 @@
     background:
         linear-gradient(
             0deg, 
-            rgba(50,50,50,0.5) 0%,
-            rgba(50,50,50,1) 100%
+            rgba(50,50,55,0.5) 0%,
+            rgba(50,50,55,1) 100%
         ),
         url("../assets/GUI/diagonal_pattern.svg");
     box-shadow: 0px 0px 15px 0px var(--container-border);
@@ -22,7 +22,6 @@
     width: 100px;
     text-align: center;
     font-size: 15px;
-    transform: skewY(-1.0deg);
 }
 .NavBarButton:hover {
     border: 1px solid var(--theme);
@@ -35,12 +34,11 @@
         justify-content: space-evenly;
         background: linear-gradient(
             0deg, 
-            rgba(50,50,50,1) 0%,
-            rgba(50,50,50,1) 100%
+            rgba(50,50,55,1) 0%,
+            rgba(50,50,55,1) 100%
         ); 
     }
     .NavBarButton {
         margin: 5px;
-        transform: skewX(-2.0deg);
     }
 }

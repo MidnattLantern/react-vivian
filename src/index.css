@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: rgb(200,200,200);
-  background: linear-gradient(0deg, rgb(170, 165, 175) 0%, rgba(235,235,235) 15%, rgba(235,235,235) 85%, rgba(170, 165, 175) 100%); 
+  background: linear-gradient(0deg, rgb(240,240,240) 0%, rgba(235,235,235) 15%, rgba(230,230,230) 85%, rgba(170, 165, 175) 100%); 
   font-family: Inter;
   color: rgb(75, 75, 75);
 }

@@ -35,8 +35,11 @@ const AddressDetail = ({ addressFocus, setAddressFocus, setAction }) => {
     return(<>
         <div className={Styles.AddressDetailContainer}>
             <AddressItem {...AddressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
-            <button onClick={handleSetEditAction}>Edit</button>
-            <button onClick={handleClose}>Close</button>
+            <br/>
+            <div className={Styles.ActionButtonContainer}>
+                <button className={Styles.Button} onClick={handleSetEditAction}>Edit</button>
+                <button className={Styles.Button} onClick={handleClose}>Close</button>
+            </div>
         </div>
     </>);
 };

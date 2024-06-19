@@ -36,17 +36,6 @@ const AddressPage = () => {
         };
     };
 
-    const handleDelete = () => {
-        try {
-            axiosReq.delete(`/address_book/${addressFocus}`);
-            fetchAddressList();
-            setAddressFocus(null);
-            setAction(null);
-        }catch(err){
-            console.log(err)
-        };
-     };
-
     useEffect(() => {
         fetchAddressList();
     }, [currentUser?.pk]);
@@ -87,26 +76,28 @@ const AddressPage = () => {
                     <div className={Styles.AddressHeaderDiv} >
                         <h1>ADDRESS BOOK</h1>
 
-                        <button onClick={fetchAddressList}>refresh</button>
-                        <p>{action}</p>
-                        <p>{addressFocus}</p>
-
                     </div>
                     <div className={Styles.AddressListDiv}>
-                        <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
-                            + NEW ADDRESS
-                        </button>
-                        {addressList.length ? (<>
-                            <InfiniteScroll
-                            children={addressList.map((address) => (<>
-                                <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
-                            </>))}
-                            dataLength={addressList.length}
-                            loader={<h1>loading...</h1>}
-                            hasMore={!!addressList.next}
-                            next={() => fetchMoreData(addressList, setAddressList)}
-                            />
-                        </>) : (null)}
+                        <ul>
+                            <li>
+                                <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
+                                    + NEW ADDRESS
+                                </button>
+                            </li>
+                        </ul>
+
+                            {addressList.length ? (<>
+                                <InfiniteScroll
+                                children={addressList.map((address) => (<>
+                                        <AddressItem key={address.id} {...address} setAddressFocus={setAddressFocus} setAction={setAction} />
+                                </>))}
+                                dataLength={addressList.length}
+                                loader={<h1>loading...</h1>}
+                                hasMore={!!addressList.next}
+                                next={() => fetchMoreData(addressList, setAddressList)}
+                                />
+                            </>) : (null)}
+
                     </div>
                 </div>
                 <div className={`${Styles.CrudContainer} ${action === null ? Styles.NotVisible : ''}`}>

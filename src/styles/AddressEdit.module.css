@@ -1,14 +1,119 @@
 .AddressEditContainer{
     border: 1px solid var(--container-border);
-    border-radius: 5px;
+    border-radius: 2px;
     height: 100%;
     padding: 25px;
     background: linear-gradient(
         0deg, 
-        rgba(50,50,50,0.5) 0%,
-        rgba(50,50,50,1) 100%
-    ),
-    url("../assets/GUI/diagonal_pattern.svg");
+        rgba(50,50,55,0.5) 0%,
+        rgba(50,50,55,1) 100%
+    );
     box-shadow: 0px 0px 15px 0px var(--container-border);
     color: var(--white);
+}
+
+tr {
+    border-bottom: 1px solid var(--white);
+}
+
+td {
+    color: var(--white);
+    padding-top: 20px;
+    padding-right: 20px;
+    font-family: Inter, sans-serif;
+}
+
+.Button, .ButtonDisabled {
+    border: 2px solid var(--grey);
+    background-color: var(--grey);
+    color: var(--white);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 100px;
+    margin: 10px;
+}
+.Button:hover {
+    border: 2px solid var(--grey);
+    color: var(--theme);
+    box-shadow: none;
+}
+.ButtonDisabled
+
+.Anchor {
+    text-decoration: underline;
+    color: var(--theme);
+}
+.Anchor:hover {
+    color: var(--white);
+}
+
+.FormControl {
+    background-color: rgba(0,0,0,0);
+    color: var(--white);
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px none var(--container-light);
+}
+.FormControl:focus {
+    background-color: rgba(0,0,0,0);
+    color: var(--theme);
+    border-bottom: 1px none var(--theme);
+    box-shadow: none;
+}
+.FormControl:hover {
+    border-bottom: 1px none var(--theme);
+    box-shadow: none;
+}
+.FormControl::placeholder {
+    color: rgb(150, 150, 150);
+}
+
+.SaveButtonContainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.DeleteButton{
+    width: 100%;
+    border: 1.5px solid var(--container-border);
+    background-color: rgba(50,50,55,0);
+    color: var(--grey);
+    border-radius: 1px;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.DeleteButton:hover{
+    color: rgb(255,0,0);
+}
+
+.Uppercase{
+    text-transform: uppercase;
+}
+.AlignLeft{
+    text-align: left;
+}
+.ActionButtonContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Button, .ButtonDisabled {
+    border: 1.5px solid var(--white);
+    background-color: rgba(50,50,55,0.0);
+    color: var(--white);
+    border-radius: 2px;
+    text-align: center;
+    padding: 5px;
+    width: 200px;
+    margin: 10px;
+}
+.Button:hover {
+    border: 1.5px solid var(--theme);
+    background-color: rgba(50,50,55,0.5);
+    color: var(--theme);
+    box-shadow: none;
 }

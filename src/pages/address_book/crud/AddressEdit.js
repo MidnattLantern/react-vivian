@@ -110,10 +110,10 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
 
     return (<>
         <div className={Styles.AddressEditContainer}>
-            <h1>EDIT {addressFocus}</h1>
+            <h1 className={Styles.Uppercase}>EDIT {partnering_end}</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <table>
+                    <table className={Styles.AlignLeft}>
                         <tr>
                             <td>Partnering end</td>
                             <td>
@@ -180,7 +180,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                             </td>
                         </tr>
                         <tr>
-                            <td>Contact person name</td>
+                            <td>Contact Person Name</td>
                             <td>
                                 <Form.Control
                                 className={Styles.FormControl}
@@ -193,7 +193,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                             </td>
                         </tr>
                         <tr>
-                            <td>Contact phone number</td>
+                            <td>Contact Phone Number</td>
                             <td>
                                 <Form.Control
                                 className={Styles.FormControl}
@@ -206,7 +206,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                             </td>
                         </tr>
                         <tr>
-                            <td>Contact email address</td>
+                            <td>Contact Email Address</td>
                             <td>
                                 <Form.Control
                                 className={Styles.FormControl}
@@ -220,12 +220,14 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                         </tr>
                     </table>
                 </Form.Group>
-
             </Form>
-            <button onClick={handleSubmit}>Save Changes</button>
-            <button onClick={handleSetDetailAction}>Discard Changes</button>
+            <br/>
+            <div className={Styles.ActionButtonContainer}>
+                <button className={Styles.Button} onClick={handleSubmit}>Save Changes</button>
+                <button className={Styles.Button} onClick={handleSetDetailAction}>Discard Changes</button>
+            </div>
         </div>
-        <button onClick={handleDelete}>Delete test</button>
+        <button className={Styles.DeleteButton} onClick={handleDelete}>DELETE {partnering_end}</button>
     </>);
 };
 
