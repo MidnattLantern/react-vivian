@@ -1,13 +1,13 @@
 // functino
 import React from "react";
-import { Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 // styles
 import Styles from "../../styles/Authentication.module.css";
 
 const SignOutPage = () => {
+    const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
     const history = useHistory();
@@ -25,7 +25,7 @@ const SignOutPage = () => {
     return (
         <div className={Styles.AuthenticationContainer}>
             <div className={Styles.AuthenticationWindow}>
-                <h1>SIGN OUT</h1>
+                <h1>{currentUser?.username}</h1>
                 <br/>
                 <button  className={Styles.Button} onClick={handleSignOut}>SIGN OUT</button>
             </div>

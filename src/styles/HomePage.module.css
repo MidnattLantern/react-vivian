@@ -7,16 +7,3 @@ h1{
     padding: 20px;
     height: 100%;
 }
-
-/* test */
-
-.SlidingDiv {
-    width: 100px;
-    height: 100px;
-    border: 1px solid var(--grey);
-    transition: width 0.2s ease-out;
-}
-
-.SlidingDiv.Visible {
-    width: 300px;
-}
