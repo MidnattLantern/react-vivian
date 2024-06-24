@@ -1,0 +1,19 @@
+.ListButton{
+    width: 90%;
+    height: 40px;
+    border: 1.5px solid var(--container-border);
+    border-radius: 1px;
+    color: var(--container-border);
+    background: none;
+}
+.ListButton:hover{
+    border: 1.5px solid var(--theme);
+    color: var(--theme);
+    background-color: rgba(50,50,55,0.1);
+}
+.Uppercase{
+    text-transform: uppercase;
+}
+.AlignLeft{
+    text-align: left;
+}

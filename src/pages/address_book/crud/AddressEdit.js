@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-// styles
-import Styles from "../../../styles/AddressEdit.module.css";
-import "../../../global.css";
 import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import { axiosReq } from "../../../api/axiosDefaults";
 import { Form } from "react-bootstrap";
+// styles
+import Styles from "../../../styles/AddressEdit.module.css";
+import "../../../global.css";
+
 
 const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressList }) => {
     const [errors, setErrors] = useState({});
@@ -32,7 +33,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
     
     useEffect(() => {
         const handleMount = async () => {
-            try{
+            try {
                 const {data} = await axiosReq.get(`/address_book/${addressFocus}`)
                 const {
                     partnering_end,
@@ -56,8 +57,8 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                 })
             }catch(err){
                 console.log(err)
-            }
-        }
+            };
+        };
         handleMount();
     }, []);
 

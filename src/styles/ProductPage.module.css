@@ -1,0 +1,118 @@
+.ProductPageContainer{
+    border: 2px dashed var(--container-border);
+    max-height: 100%;
+    display: flex;
+    min-height: 100%;
+    flex-direction: row;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: height 1.0s ease;
+    /* always hide the scroll bar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.ProductPageContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.ListContainer,
+.CrudContainer{
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 20px;
+    width: 50%;
+    min-height: 100%;
+    /* always hide the scroll bar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.ListContainer::-webkit-scrollbar,
+.CrudContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.ListContainer{
+    margin-right: 10px;
+    min-height: 100%;
+}
+
+.ListContainer.NotVisible{
+    height: 0px;
+}
+.CrudContainer{
+    margin-left: 10px;
+    max-height: 100vh;
+    transition: max-height 0.25s ease-out;
+    border-radius: 2px;
+    box-shadow: 0px 0px 15px 0px var(--container-border);
+}
+.CrudContainer.NotVisible{
+    max-height: 0;
+}
+.NoCrudAction{
+    border: 1px solid var(--container-border);
+    border-radius: 2px;
+    height: 100%;
+    padding: 25px;
+    background: linear-gradient(
+        0deg, 
+        rgba(50,50,55,0.5) 0%,
+        rgba(50,50,55,1) 100%
+    );
+    box-shadow: 0px 0px 15px 0px var(--container-border);
+    color: var(--white);
+}
+
+.ProductHeaderDiv{
+    border: 1px none var(--container-border);
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.ProductListDiv{
+    height: 90%;
+    border-top: 1.5px solid var(--container-border);
+    border-bottom: 1.5px solid var(--container-border);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.CreateButton{
+    width: 90%;
+    height: 40px;
+    margin-top: 20px;
+    border: 1.5px solid var(--container-border);
+    border-radius: 1px;
+    color: var(--container-border);
+    background: none;
+}
+.CreateButton:hover{
+    border: 1.5px solid var(--theme);
+    color: var(--theme);
+    background-color: rgba(50,50,55,0.1);
+}
+
+@media (max-width: 600px) {
+    .ProductHeaderDiv{
+        display: none;
+    }
+    .ProductPageContainer{
+        border: none;
+        flex-direction: column;
+    }
+    .ListContainer,
+    .CrudContainer{
+        width: 100%;
+        margin: 0px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .CrudContainer{
+        margin-top: 10px;
+        height: fit-content;
+        box-shadow: none;
+    }
+}

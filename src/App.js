@@ -13,7 +13,7 @@ import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
 import AddressPage from "./pages/address_book/AddressPage";
-import ProductPage from "./pages/product_page/ProductPage";
+import ProductPage from "./pages/product_book/ProductPage";
 import HomePage from "./pages/home_page/HomePage";
 
 function App() {

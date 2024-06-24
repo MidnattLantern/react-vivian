@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { axiosReq } from "../../../api/axiosDefaults";
 // styles
 import Styles from "../../../styles/AddressDetail.module.css"
 import "../../../global.css";
+//components
 import AddressItem from "../AddressItem";
-import { axiosReq } from "../../../api/axiosDefaults";
+
 
 const AddressDetail = ({ addressFocus, setAddressFocus, setAction }) => {
-    const [AddressDetail, setAddressDetail] = useState({ results: [] });
+    const [addressDetail, setAddressDetail] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
@@ -24,17 +26,17 @@ const AddressDetail = ({ addressFocus, setAddressFocus, setAction }) => {
 
     const handleSetEditAction = () => {
         setAddressFocus(addressFocus);
-        setAction("edit")
-    }
+        setAction("edit");
+    };
 
     const handleClose = () => {
         setAddressFocus(null);
         setAction(null);
-    }
+    };
 
     return(<>
         <div className={Styles.AddressDetailContainer}>
-            <AddressItem {...AddressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
+            <AddressItem {...addressDetail.results[0]} setAddressDetail={setAddressDetail} AddressDetail/>
             <br/>
             <div className={Styles.ActionButtonContainer}>
                 <button className={Styles.Button} onClick={handleSetEditAction}>Edit</button>
