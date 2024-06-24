@@ -6,16 +6,20 @@ The responsive change from desktop to phone happen at `max-width:600px`. The dim
 Overflow X and Y trap the options inside a scrollable div when window size is too small.
 With plenty of horizontal space for desktop, and vertical for phone, the NavBar is kept at the left for desktop and bottom for phone.
 
+Root container
+---
 Every component and page has a x-container, the navbar and app view use two containers inside one container
 Container:
+```jsx
 <div>
     <div>
-    (Navbar)
+    {/* Navbar */}
     </div>
     <div>
-    (App content)
+    {/* App content */}
     </div>
 </div>
+```
 
 The first <div> is for the Vivian app itself, the root container.
 
@@ -24,3 +28,19 @@ Use <Nav> from bootstrap. This component shouldn't have a <div> wrapped, as it w
 css:
 `flex: 0 0 auto;`
 Prevent items from shrinking in the phone view.
+
+Hide the scroll bar:
+---
+Vivian is visually designed without scroll bar in mind. To hide the scroll bar, include this in CSS:
+
+```css
+.Container {
+    /* code for container like usual */
+    /* always hide the scroll bar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.Container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+```

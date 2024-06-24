@@ -23,10 +23,9 @@ const NavBar = () => {
         <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/signout">SIGN OUT</NavLink>
         <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/address">ADDRESS</NavLink>
         <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/product">PRODUCT</NavLink>
-        <div className={Styles.NavBarButton}>TEST</div>
     </>
 
-/* Do not use <div> before the <Nav> on this one */
+/* Do not use <div> before the <Nav> on this component */
     return ( <>
         <Nav className={Styles.NavBarContainer}>
             <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/">HOME</NavLink>
