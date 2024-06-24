@@ -22,15 +22,16 @@ const NavBar = () => {
     const authenticatedOptions = <>
         <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/signout">SIGN OUT</NavLink>
         <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/address">ADDRESS</NavLink>
+        <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/product">PRODUCT</NavLink>
+        <div className={Styles.NavBarButton}>TEST</div>
     </>
 
+/* Do not use <div> before the <Nav> on this one */
     return ( <>
-        <div className={Styles.NavBarContainer}>
-            <Nav className={Styles.BackgroundPattern}>
-                <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/">HOME</NavLink>
-                {currentUser ? (authenticatedOptions) : (nonAuthenticatedOptions)}
-            </Nav>
-        </div>
+        <Nav className={Styles.NavBarContainer}>
+            <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/">HOME</NavLink>
+            {currentUser ? (authenticatedOptions) : (nonAuthenticatedOptions)}
+        </Nav>
     </> )
 };
 

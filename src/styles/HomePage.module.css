@@ -7,3 +7,31 @@ h1{
     padding: 20px;
     height: 100%;
 }
+
+.Container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.Item {
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    margin: 5px;
+    padding: 10px;
+    background-color: lightblue;
+    border: 1px solid #ccc;
+}
+
+/* Optional: Styling for the scrollbar */
+.container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

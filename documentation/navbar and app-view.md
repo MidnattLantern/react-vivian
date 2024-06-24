@@ -18,3 +18,9 @@ Container:
 </div>
 
 The first <div> is for the Vivian app itself, the root container.
+
+Use <Nav> from bootstrap. This component shouldn't have a <div> wrapped, as it will mess with the appearance.
+
+css:
+`flex: 0 0 auto;`
+Prevent items from shrinking in the phone view.

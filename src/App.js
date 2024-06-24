@@ -13,6 +13,7 @@ import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
 import AddressPage from "./pages/address_book/AddressPage";
+import ProductPage from "./pages/product_page/ProductPage";
 import HomePage from "./pages/home_page/HomePage";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                 <Route exact path="/signout" render={() => <SignOutPage />} />
                 <Route exact path="/" render={() => <HomePage />} />
                 <Route exact path="/address" render={() => <AddressPage />} />
+                <Route exact path="/product" render={() => <ProductPage />} />
                 <Route path="/" render={() => <h1>404 PAGE NOT FOUND</h1>} />
               </Switch>
             </div>

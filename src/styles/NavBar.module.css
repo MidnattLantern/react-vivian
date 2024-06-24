@@ -10,20 +10,26 @@
         url("../assets/GUI/diagonal_pattern.svg");
     box-shadow: 0px 0px 15px 0px var(--container-border);
     height: 100%;
-    overflow-y: scroll;
+    display: flex;
+    flex-wrap: initial;
+    flex-direction: column;
+    align-items: center;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 .NavBarButton {
     border: 1px solid var(--container-light);
     border-radius: 1px;
     color: var(--container-light);
-    margin: auto;
+    margin: none;
     margin-top: 20px;
     padding: 5px;
     text-decoration: none;
     width: 100px;
+    height: 35px;
     text-align: center;
     font-size: 15px;
+    flex: 0 0 auto; /* Prevent items from shrinking */
 }
 .NavBarButton:hover {
     border: 1px solid var(--theme);
@@ -34,17 +40,21 @@
 .Active:hover{
     color: var(--container-light);
     background-color: rgba(0,0,0,0);
-    border: 2px solid var(--container-border);
+    border: 2px hidden var(--container-border);
 }
 @media (max-width: 600px) {
     .NavBarContainer {
-        display: flex;
-        justify-content: space-evenly;
         background: linear-gradient(
             0deg, 
-            rgba(50,50,55,1) 0%,
-            rgba(50,50,55,1) 100%
+            rgba(50,50,55,0.85) 0%,
+            rgba(50,50,55,1) 75%
         ); 
+        height: 50px;
+        display: flex;
+        flex-wrap: initial;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
     .NavBarButton {
         margin: 5px;
