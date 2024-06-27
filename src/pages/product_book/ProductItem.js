@@ -14,7 +14,7 @@ const ProductItem = ({ setProductFocus, setAction, ...props }) => {
 
     const setActionAndFocus = () => {
         setAction("detail");
-        setProductFocus(id)
+        setProductFocus(id);
     };
 
     return(<>
@@ -22,7 +22,7 @@ const ProductItem = ({ setProductFocus, setAction, ...props }) => {
             <h1 className={Styles.Uppercase}>{name}</h1>
             <table className={Styles.AlignLeft}>
                 <tr>
-                    <td>Partnering End:</td>
+                    <td>Product:</td>
                     <td>{name}</td>
                 </tr>
                 <tr>

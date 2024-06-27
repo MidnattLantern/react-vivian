@@ -3,7 +3,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-// style
+// styles
 import "../../global.css";
 import Styles from "../../styles/ProductPage.module.css"
 // crud components
@@ -37,6 +37,7 @@ const ProductPage = () => {
     };
 
     useEffect(() => {
+        /* setHasLoaded for useEffect */
         fetchProductList();
     }, [currentUser?.pk]);
     
@@ -89,7 +90,7 @@ const ProductPage = () => {
                             {productList.length ? (<>
                                 <InfiniteScroll
                                 children={productList.map((product) => (<>
-                                        <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} setAction={setAction} />
+                                    <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} setAction={setAction} />
                                 </>))}
                                 dataLength={productList.length}
                                 loader={<h1>loading...</h1>}

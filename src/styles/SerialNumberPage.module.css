@@ -1,0 +1,31 @@
+.SerialNumberPageContainer{
+    border: 2px dashed var(--container-border);
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Product list make an exception to the naming convenction
+"SerialNumberListContainer" instead of "ListContainer"
+"SerialNumberPageContainer" instead of "PageContainer" */
+.ProductListContainer{
+    border: 1px hidden var(--container-border);
+    padding: 10px;
+    width: 33%;
+}
+.SerialNumberListContainer{
+    border: 1px solid var(--container-border);
+    padding: 10px;
+    width: 33%;
+}
+.SerialNumberCrudContainer{
+    border: 1px hidden var(--container-border);
+    padding: 10px;
+    width: 34%;
+}
+
+@media (max-width: 600px) {
+    .SerialNumberPageContainer{
+        border: none;
+    }
+}
