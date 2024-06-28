@@ -13,7 +13,7 @@ const SerialNumberItem = ({ setSerialNumberFocus, setAction, ...props}) => {
         SerialNumberDetail,
     } = props;
 
-    const setActionAndFocus = () => {
+    const setActionAndFocus = async () => {
         setAction("detail");
         setSerialNumberFocus(id);
     };

@@ -7,9 +7,15 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Styles from "../../styles/SerialNumberPage.module.css";
 import "../../global.css";
 // foreign components
-import ProductItem from "../product_book/ProductItem";
+import ProductItem from "./ProductItem";
 import SerialNumberItem from "./SerialNumberItem";
 // crud components
+
+const NoCrudAction = () => {
+    return(<>
+        <div className={Styles.NoCrudAction}/>
+    </>);
+};
 
 const SerialNumberPage = () => {
     const [action, setAction] = useState(null);
@@ -17,7 +23,10 @@ const SerialNumberPage = () => {
     const [productList, setProductList] = useState({ results: [] });
     const [serialNumberList, setSerialNumberList] = useState({ results: [] });
     const [productFocus, setProductFocus] = useState(null);
+    const [serialNumberFocus, setSerialNumberFocus] = useState(null);
     const [hasLoaded, setHasLoaded] = useState(false);
+    /* refresh is used for real time feedback */
+    const [refresh, triggerRefresh] = useState(false);
 
     const fetchProductList = async () => {
         try {
@@ -31,8 +40,9 @@ const SerialNumberPage = () => {
     };
     const fetchSerialNumberList = async () => {
         try {
-            const { data } = await axiosReq.get(`/serial_number_book/?owner__profile=${currentUser?.pk}`);
+            const { data } = await axiosReq.get(`/serial_number_book/?link_product_name=${productFocus}&link_partnering_end=&owner__profile=${currentUser?.pk}`);
             setSerialNumberList(data);
+
             setHasLoaded(true)
             console.log("fetch/ refresh serial number list")
         } catch(err) {
@@ -41,10 +51,18 @@ const SerialNumberPage = () => {
     };
 
 useEffect(() => {
-    /* setHasLoaded for useEffect */
     fetchProductList();
     fetchSerialNumberList();
-}, [currentUser?.pk]);
+    /* refresh is used for real time feedback */
+    triggerRefresh(false);
+}, [refresh, currentUser?.pk]);
+
+const renderAction = (action) => {
+    switch (action) {
+        default:
+            return <NoCrudAction/>;
+    };
+};
 
 
 /* Product list make an exception to the naming convenction
@@ -58,7 +76,7 @@ useEffect(() => {
                 {productList.length ? (<>
                     <InfiniteScroll
                     children={productList.map((product) => (<>
-                        <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} setAction={setAction} />
+                        <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} triggerRefresh={triggerRefresh} />
                     </>))}
                     dataLength={productList.length}
                     loader={<h1>loading...</h1>}
@@ -68,7 +86,8 @@ useEffect(() => {
                 </>) : (null)}
             </div>
             <div className={Styles.SerialNumberListContainer}>
-                <h1>Serial Number List</h1>
+                <h1>Serial Number List {productFocus}</h1>
+                <button onClick={fetchSerialNumberList}>refresh</button>
 
                     <ul>
                         <li>
@@ -81,7 +100,7 @@ useEffect(() => {
                 {serialNumberList.length ? (<>
                     <InfiniteScroll
                     children={serialNumberList.map((serial_number) => (<>
-                        <SerialNumberItem key={serial_number.id} {...serial_number} setSerialNumberFocus={setSerialNumberList} setAction={setAction} />
+                        <SerialNumberItem key={serial_number.id} {...serial_number} setSerialNumberFocus={setSerialNumberFocus} setAction={setAction} />
                     </>))}
                     dataLength={serialNumberList.length}
                     loader={<h1>loading...</h1>}
@@ -92,7 +111,7 @@ useEffect(() => {
 
             </div>
             <div className={Styles.SerialNumberCrudContainer}>
-                <h1>Serial Number Crud</h1>
+                {renderAction(action)}
             </div>
         </div>
     </>);

@@ -60,7 +60,7 @@ const ProductEdit = ({ productFocus, setProductFocus, setAction, fetchProductLis
     };
 
     const handleSetDetailAction = async (event) => {
-        event.preventDetault();
+        event.preventDefault();
         setAction("detail");
         setProductFocus(productFocus);
     };
