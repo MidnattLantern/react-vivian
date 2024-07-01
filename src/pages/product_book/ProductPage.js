@@ -76,7 +76,6 @@ const ProductPage = () => {
                 <div className={Styles.ListContainer}>
                     <div className={Styles.ProductHeaderDiv} >
                         <h1>PRODUCT BOOK</h1>
-
                     </div>
                     <div className={Styles.ProductListDiv}>
                         <ul>

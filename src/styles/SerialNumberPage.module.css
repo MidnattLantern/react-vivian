@@ -3,25 +3,70 @@
     min-height: 100%;
     display: flex;
     flex-direction: row;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: height 1.0s ease;
+    /* always hide the scroll bar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.ProductPageContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
 }
 
 /* Product list make an exception to the naming convenction
 "SerialNumberListContainer" instead of "ListContainer"
 "SerialNumberPageContainer" instead of "PageContainer" */
 .ProductListContainer{
-    border: 1px hidden var(--container-border);
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding: 10px;
     width: 33%;
+    min-height: 100%;
+
 }
 .SerialNumberListContainer{
-    border: 1px solid var(--container-border);
     padding: 10px;
     width: 33%;
+    min-height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .SerialNumberCrudContainer{
-    border: 1px hidden var(--container-border);
     padding: 10px;
     width: 34%;
+    min-height: 100%;
+}
+
+.ListHeaderDiv{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.ListDiv{
+    height: 90%;
+    padding-top: 20px;
+    border-top: 1.5px solid var(--container-border);
+    border-bottom: 1.5px solid var(--container-border);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.CreateButton{
+    width: 90%;
+    height: 40px;
+    border: 1.5px solid var(--container-border);
+    border-radius: 1px;
+    color: var(--container-border);
+    background: none;
+}
+.CreateButton:hover{
+    border: 1.5px solid var(--theme);
+    color: var(--theme);
+    background-color: rgba(50,50,55,0.1);
 }
 
 @media (max-width: 600px) {

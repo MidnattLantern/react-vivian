@@ -1,4 +1,4 @@
-/* Not to be confused with the ProductItem.js from the origin */
+/* Not to be confused with the ProductItem.js from the product origin */
 
 // functional
 import React from "react";

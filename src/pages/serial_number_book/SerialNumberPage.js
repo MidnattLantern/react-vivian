@@ -71,32 +71,36 @@ const renderAction = (action) => {
     return(<>
         <div className={Styles.SerialNumberPageContainer}>
             <div className={Styles.ProductListContainer}>
-                <h1>PRODUCT BOOK</h1>
-
-                {productList.length ? (<>
-                    <InfiniteScroll
-                    children={productList.map((product) => (<>
-                        <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} triggerRefresh={triggerRefresh} />
-                    </>))}
-                    dataLength={productList.length}
-                    loader={<h1>loading...</h1>}
-                    hasMore={!!productList.next}
-                    next={() => fetchMoreData(productList, setProductList)}
-                    />
-                </>) : (null)}
+                <div className={Styles.ListHeaderDiv}>
+                    <h1>PRODUCT(s)</h1>
+                </div>
+                <div className={Styles.ListDiv}>
+                    {productList.length ? (<>
+                        <InfiniteScroll
+                        children={productList.map((product) => (<>
+                            <ProductItem key={product.id} {...product} setProductFocus={setProductFocus} triggerRefresh={triggerRefresh} />
+                        </>))}
+                        dataLength={productList.length}
+                        loader={<h1>loading...</h1>}
+                        hasMore={!!productList.next}
+                        next={() => fetchMoreData(productList, setProductList)}
+                        />
+                    </>) : (null)}
+                </div>
             </div>
             <div className={Styles.SerialNumberListContainer}>
-                <h1>Serial Number List {productFocus}</h1>
-                <button onClick={fetchSerialNumberList}>refresh</button>
-
-                    <ul>
-                        <li>
-                            <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
-                                + NEW SERIAL NUMBER
-                            </button>
-                        </li>
-                    </ul>
-
+                <div className={Styles.ListHeaderDiv}>
+                    <h1>SERIAL NUMBER BOOK</h1>
+                </div>
+                <div className={Styles.ListDiv}>
+                {productFocus !== null ? (<>
+                <ul>
+                    <li>
+                        <button className={Styles.CreateButton} onClick={() => {setAction("create")}}>
+                            + NEW SERIAL NUMBER
+                        </button>
+                    </li>
+                </ul>
                 {serialNumberList.length ? (<>
                     <InfiniteScroll
                     children={serialNumberList.map((serial_number) => (<>
@@ -106,9 +110,14 @@ const renderAction = (action) => {
                     loader={<h1>loading...</h1>}
                     hasMore={!!serialNumberList.next}
                     next={() => fetchMoreData(serialNumberList, setSerialNumberList)}
-                    />
-                </>) : (null)}
-
+                    /> 
+                </>) : null}
+            </>) : (<>
+                <div className={Styles.ListHeaderDiv}>
+                    <p>------</p>
+                </div>
+            </>)}
+                </div>
             </div>
             <div className={Styles.SerialNumberCrudContainer}>
                 {renderAction(action)}
