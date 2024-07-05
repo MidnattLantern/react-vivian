@@ -54,7 +54,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                     contact_person_name,
                     contact_phone_number,
                     contact_email,
-                })
+                });
             }catch(err){
                 console.log(err)
             };
@@ -104,7 +104,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
             fetchAddressList();
             setAddressFocus(null);
             setAction(null);
-        }catch(err){
+        } catch(err) {
             console.log(err)
         };
      };

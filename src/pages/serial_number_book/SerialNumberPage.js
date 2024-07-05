@@ -71,11 +71,19 @@ const renderAction = (action) => {
             />;
         case 'detail':
             return <SerialNumberDetail
+            setAction={setAction}
+            setSerialNumberFocus={setSerialNumberFocus}
             serialNumberFocus={serialNumberFocus}
             key={serialNumberFocus}
             />;
         case 'edit':
-            return <SerialNumberEdit />;
+            return <SerialNumberEdit
+            setAction={setAction}
+            fetchSerialNumberList={fetchSerialNumberList}
+            setSerialNumberFocus={setSerialNumberFocus}
+            serialNumberFocus={serialNumberFocus}
+            key={serialNumberFocus}
+            />;
         default:
             return <NoCrudAction/>;
     };

@@ -1,0 +1,36 @@
+.SerialNumberDetailContainer{
+    border: 1px solid var(--container-border);
+    border-radius: 2px;
+    height: 100%;
+    padding: 25px;
+    background: linear-gradient(
+        0deg, 
+        rgba(50,50,55,0.5) 0%,
+        rgba(50,50,55,1) 100%
+    );
+    box-shadow: 0px 0px 15px 0px var(--container-border);
+    color: var(--white);
+}
+
+.ActionButtonContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Button, .ButtonDisabled {
+    border: 1.5px solid var(--white);
+    background-color: rgba(50,50,55,0.0);
+    color: var(--white);
+    border-radius: 2px;
+    text-align: center;
+    padding: 5px;
+    width: 100px;
+    margin: 10px;
+}
+.Button:hover {
+    border: 1.5px solid var(--theme);
+    background-color: rgba(50,50,55,0.5);
+    color: var(--theme);
+    box-shadow: none;
+}

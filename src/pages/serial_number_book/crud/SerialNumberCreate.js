@@ -71,7 +71,7 @@ const SerialNumberCreate = ({ productFocus, setAction, setSerialNumberFocus, fet
             <Form.Group>
                 <table>
                     <tr>
-                        <td>S.N.</td>
+                        <td>S.N:</td>
                         <td>
                             <Form.Control
                             className={Styles.FormControl}

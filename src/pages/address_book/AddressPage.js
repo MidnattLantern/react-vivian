@@ -75,7 +75,6 @@ const AddressPage = () => {
                 <div className={Styles.ListContainer}>
                     <div className={Styles.AddressHeaderDiv} >
                         <h1>ADDRESS BOOK</h1>
-
                     </div>
                     <div className={Styles.AddressListDiv}>
                         <ul>
@@ -85,7 +84,6 @@ const AddressPage = () => {
                                 </button>
                             </li>
                         </ul>
-
                             {addressList.length ? (<>
                                 <InfiniteScroll
                                 children={addressList.map((address) => (<>
@@ -97,7 +95,6 @@ const AddressPage = () => {
                                 next={() => fetchMoreData(addressList, setAddressList)}
                                 />
                             </>) : (null)}
-
                     </div>
                 </div>
                 <div className={`${Styles.CrudContainer} ${action === null ? Styles.NotVisible : ''}`}>

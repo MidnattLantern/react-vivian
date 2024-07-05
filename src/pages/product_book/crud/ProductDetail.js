@@ -1,9 +1,10 @@
+// functional
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../../api/axiosDefaults";
-//styles
+// styles
 import Styles from "../../../styles/ProductDetail.module.css";
 import "../../../global.css";
-//components
+// components
 import ProductItem from "../ProductItem";
 
 const ProductDetail = ({ productFocus, setProductFocus, setAction}) => {
