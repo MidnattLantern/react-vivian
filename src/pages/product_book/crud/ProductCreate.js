@@ -1,9 +1,11 @@
+// functional
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../../api/axiosDefaults";
+import { Form } from "react-bootstrap";
 // styles
 import Styles from "../../../styles/ProductCreate.module.css";
 import "../../../global.css";
-import { Form } from "react-bootstrap";
+
 
 const ProductCreate = ({ setAction, setProductFocus, fetchProductList }) => {
     const [errors, setErrors] = useState({});
@@ -13,6 +15,7 @@ const ProductCreate = ({ setAction, setProductFocus, fetchProductList }) => {
     const { name, } = productData;
 
     useEffect(() => {
+        // reset product focus for UX
         setProductFocus(null);
     }, []);
 
@@ -26,7 +29,7 @@ const ProductCreate = ({ setAction, setProductFocus, fetchProductList }) => {
     const handleCancel = async (event) => {
         event.preventDefault();
         setAction(null);
-    }
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();

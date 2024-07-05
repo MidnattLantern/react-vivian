@@ -8,8 +8,11 @@ import Styles from "../../styles/SerialNumberPage.module.css";
 import "../../global.css";
 // foreign components
 import ProductItem from "./ProductItem";
-import SerialNumberItem from "./SerialNumberItem";
 // crud components
+import SerialNumberItem from "./SerialNumberItem";
+import SerialNumberDetail from "./crud/SerialNumberDetail";
+import SerialNumberCreate from "./crud/SerialNumberCreate";
+import SerialNumberEdit from "./crud/SerialNumberEdit";
 
 const NoCrudAction = () => {
     return(<>
@@ -42,7 +45,6 @@ const SerialNumberPage = () => {
         try {
             const { data } = await axiosReq.get(`/serial_number_book/?link_product_name=${productFocus}&link_partnering_end=&owner__profile=${currentUser?.pk}`);
             setSerialNumberList(data);
-
             setHasLoaded(true)
             console.log("fetch/ refresh serial number list")
         } catch(err) {
@@ -53,12 +55,27 @@ const SerialNumberPage = () => {
 useEffect(() => {
     fetchProductList();
     fetchSerialNumberList();
+    setAction(null);
     /* refresh is used for real time feedback */
     triggerRefresh(false);
 }, [refresh, currentUser?.pk]);
 
 const renderAction = (action) => {
     switch (action) {
+        case 'create':
+            return <SerialNumberCreate
+            setAction={setAction}
+            fetchSerialNumberList={fetchSerialNumberList}
+            setSerialNumberFocus={setSerialNumberFocus}
+            productFocus={productFocus}
+            />;
+        case 'detail':
+            return <SerialNumberDetail
+            serialNumberFocus={serialNumberFocus}
+            key={serialNumberFocus}
+            />;
+        case 'edit':
+            return <SerialNumberEdit />;
         default:
             return <NoCrudAction/>;
     };
@@ -69,10 +86,11 @@ const renderAction = (action) => {
 "SerialNumberListContainer" instead of "ListContainer"
 "SerialNumberPageContainer" instead of "PageContainer" */
     return(<>
+
         <div className={Styles.SerialNumberPageContainer}>
             <div className={Styles.ProductListContainer}>
                 <div className={Styles.ListHeaderDiv}>
-                    <h1>PRODUCT(s)</h1>
+                    <h1>PRODUCT: {productFocus}</h1>
                 </div>
                 <div className={Styles.ListDiv}>
                     {productList.length ? (<>

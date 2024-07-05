@@ -27,7 +27,7 @@ const ProductEdit = ({ productFocus, setProductFocus, setAction, fetchProductLis
                 setProductData({
                     name,
                     serial_number_prefix,
-                })
+                });
             } catch(err) {
                 console.log(err)
             };
