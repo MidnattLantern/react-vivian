@@ -1,14 +1,18 @@
 // functional
 import React, { useEffect, useState } from "react";
-import { useCurrentUser } from "../../../contexts/CurrentUserContext";
 import { axiosReq } from "../../../api/axiosDefaults";
+import { fetchMoreData } from "../../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 // styles
 import Styles from "../../../styles/SerialNumberEdit.module.css";
 import "../../../global.css";
 import { Form } from "react-bootstrap";
+// components
+import AddressItem from "./AddressItem";
 
-const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, fetchSerialNumberList }) => {
+const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, fetchSerialNumberList, currentUser }) => {
     const [errors, setErrors] = useState({});
+    const [addressDropdown, setAddressDropdown] = useState(false);
     const [serialNumberData, setSerialNumberData] = useState({
         link_product_name: "",
         link_partnering_end: "",
@@ -23,7 +27,28 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
         display_link_product_name,
         display_link_partnering_end,
     } = serialNumberData;
-    const currentUser = useCurrentUser;
+    const [addressList, setAddressList] = useState({ results: [] });
+
+    const fetchAddressList = async () => {
+        try {
+            const { data } = await axiosReq.get(`/address_book/?owner__profile=${currentUser?.pk}`);
+            setAddressList(data);
+            console.log("fetch/ refresh address list")
+        } catch(err){
+            console.log(err);
+        };
+    };
+
+    const toggleAddressDropdown = () => {
+        setAddressDropdown(prevState => !prevState);
+    }
+
+    const handleTest = ( property, value ) => {
+        setSerialNumberData(prevState => ({
+            ...prevState,
+            [property]: value
+        }))
+    }
 
     useEffect(() => {
         const handleMount = async () => {
@@ -48,6 +73,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
             };
         };
         handleMount();
+        fetchAddressList();
     }, []);
 
     const handleChange = (event) => {
@@ -61,7 +87,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
         event.preventDefault();
         const formData = new FormData();
         formData.append("link_product_name", link_product_name);
-//        formData.append("link_partnering_end", link_partnering_end);
+        formData.append("link_partnering_end", link_partnering_end);
         formData.append("serial_number", serial_number);
         try {
             await axiosReq.put(`/serial_number_book/${serialNumberFocus}`, formData);
@@ -95,11 +121,12 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
     return(<>
         <div className={Styles.SerialNumberEditContainer}>
             <h1 className={Styles.Uppercase}>EDIT {display_link_product_name} - {serial_number}</h1>
+
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <table className={Styles.AlignLeft}>
                         <tr>
-                            <td>S.N:</td>
+                            <td>Serial Number</td>
                             <td>
                                 <Form.Control
                                 className={Styles.FormControl}
@@ -111,7 +138,39 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                                 />
                             </td>
                         </tr>
+                        <tr>
+                            <td className={Styles.Immutable}>Product:</td>
+                            <td>
+                                <Form.Control
+                                className={Styles.Immutable}
+                                type="text"
+                                value={display_link_product_name}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className={Styles.FitTDTitle}>Hiring partner:</td>
+                            <td>
+                                <p onClick={toggleAddressDropdown}> --- v </p>
+                            </td>
+                        </tr>
                     </table>
+
+                            {addressDropdown ? (<>
+                                {addressList.length ? (<>
+                                    <InfiniteScroll
+                                    children={addressList.map((address) => (<>
+                                        <AddressItem key={address.id} {...address} setSerialNumberData={setSerialNumberData} />
+                                    </>))}
+                                    dataLength={addressList.length}
+                                    loader={<p>loading...</p>}
+                                    hasMore={!!addressList.next}
+                                    next={() => fetchMoreData(addressList, setAddressList)}
+                                    className={Styles.PartneringEndList}
+                                    />
+                                </>) : (null)}
+                            </>) : null}
+                    
                 </Form.Group>
             </Form>
             <br/>

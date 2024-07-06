@@ -24,7 +24,7 @@ const SerialNumberItem = ({ setSerialNumberFocus, setAction, ...props}) => {
             <h1 className={Styles.Uppercase}>{display_link_product_name} - {serial_number}</h1>
             <table className={Styles.AlignLeft}>
                 <tr>
-                    <td>S.N:</td>
+                    <td>Serial Number:</td>
                     <td>{serial_number}</td>
                 </tr>
                 <tr>

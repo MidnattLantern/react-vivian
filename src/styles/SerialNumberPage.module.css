@@ -1,6 +1,6 @@
 .SerialNumberPageContainer{
     border: 2px dashed var(--container-border);
-    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     overflow-y: scroll;
@@ -17,7 +17,9 @@
 /* Product list make an exception to the naming convenction
 "SerialNumberListContainer" instead of "ListContainer"
 "SerialNumberPageContainer" instead of "PageContainer" */
-.ProductListContainer{
+.ProductListContainer,
+.SerialNumberListContainer,
+.SerialNumberCrudContainer{
     text-align: center;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -26,17 +28,8 @@
     min-height: 100%;
 
 }
-.SerialNumberListContainer{
-    padding: 10px;
-    width: 33%;
-    min-height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
 .SerialNumberCrudContainer{
-    padding: 10px;
     width: 34%;
-    min-height: 100%;
 }
 
 .ListHeaderDiv{

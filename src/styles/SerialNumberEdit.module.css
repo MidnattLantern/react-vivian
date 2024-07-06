@@ -49,7 +49,6 @@ td {
 }
 
 .FormControl {
-    width: 150px;
     background-color: rgba(0,0,0,0);
     color: var(--white);
     border-radius: 0px;
@@ -117,4 +116,25 @@ td {
     background-color: rgba(50,50,55,0.5);
     color: var(--theme);
     box-shadow: none;
+}
+
+.Immutable,
+.Immutable:focus{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: var(--immutable-text);
+    box-shadow: none;
+}
+
+.PartneringEndList{
+    max-height: 150px;
+    width: 100%;
+    border-bottom: 1px solid var(--container-light);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Make "Hiring Partner" stay on the same line */
+.FitTDTitle{
+    width: 135px;
 }

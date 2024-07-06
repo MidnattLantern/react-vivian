@@ -83,6 +83,7 @@ const renderAction = (action) => {
             setSerialNumberFocus={setSerialNumberFocus}
             serialNumberFocus={serialNumberFocus}
             key={serialNumberFocus}
+            currentUser={currentUser}
             />;
         default:
             return <NoCrudAction/>;
@@ -94,11 +95,10 @@ const renderAction = (action) => {
 "SerialNumberListContainer" instead of "ListContainer"
 "SerialNumberPageContainer" instead of "PageContainer" */
     return(<>
-
         <div className={Styles.SerialNumberPageContainer}>
             <div className={Styles.ProductListContainer}>
                 <div className={Styles.ListHeaderDiv}>
-                    <h1>PRODUCT: {productFocus}</h1>
+                    <h1>PRODUCT</h1>
                 </div>
                 <div className={Styles.ListDiv}>
                     {productList.length ? (<>
@@ -111,7 +111,7 @@ const renderAction = (action) => {
                         hasMore={!!productList.next}
                         next={() => fetchMoreData(productList, setProductList)}
                         />
-                    </>) : (null)}
+                    </>) : (<p>------</p>)}
                 </div>
             </div>
             <div className={Styles.SerialNumberListContainer}>

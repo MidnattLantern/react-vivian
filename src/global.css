@@ -6,4 +6,5 @@
     --container-light: rgb(210, 200, 200);
     --container-border: rgb(75, 75, 85);
     --void: rgb(0, 0, 0);
+    --immutable-text: rgba(210, 200, 200, 0.5);
 }

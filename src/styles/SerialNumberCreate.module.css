@@ -65,3 +65,8 @@ td {
     display: flex;
     justify-content: center;
 }
+
+/* Make "Serial Number" stay on the same line */
+.FitTDTitle{
+    width: 135px;
+}
