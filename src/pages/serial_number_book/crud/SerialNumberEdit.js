@@ -41,7 +41,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
             setAddressList(data);
             console.log("fetch/ refresh address list");
         } catch(err){
-            console.log(err);
+//            console.log(err);
         };
     };
 
@@ -71,7 +71,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                 /* setDisplaySelectedPartneringEnd must be here */
                 await setDisplaySelectedPartneringEnd(display_link_partnering_end)
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();
@@ -96,7 +96,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
             fetchSerialNumberList();
             setAction("detail");
         } catch(err) {
-            console.log(err);
+//            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             };
@@ -116,7 +116,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
             setSerialNumberFocus(null);
             setAction(null);
         } catch(err) {
-            console.log(err)
+//            console.log(err)
         };
     };
 

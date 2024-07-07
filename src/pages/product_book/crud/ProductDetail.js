@@ -18,7 +18,7 @@ const ProductDetail = ({ productFocus, setProductFocus, setAction}) => {
                 ]);
                 setProductDetail({ results: [product] });
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();

@@ -18,7 +18,7 @@ const AddressDetail = ({ addressFocus, setAddressFocus, setAction }) => {
                 ]);
                 setAddressDetail({ results: [address] });
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();

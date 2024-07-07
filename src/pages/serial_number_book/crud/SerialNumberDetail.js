@@ -18,7 +18,7 @@ const SerialNumberDetail = ({ serialNumberFocus, setSerialNumberFocus, setAction
                 ]);
                 setSerialNumberDetail({ results: [serialNumber] });
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();

@@ -31,6 +31,7 @@ const NavBar = () => {
         <Nav className={Styles.NavBarContainer}>
             <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/">HOME</NavLink>
             {currentUser ? (authenticatedOptions) : (nonAuthenticatedOptions)}
+            <NavLink className={Styles.NavBarButton} exact activeClassName={Styles.Active} to="/about">ABOUT</NavLink>
         </Nav>
     </> )
 };

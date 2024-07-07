@@ -84,8 +84,17 @@
     background-color: rgba(50,50,55,0.1);
 }
 
-@media (max-width: 600px) {
+/* bridge type will switch at 1200 instead */
+@media (max-width: 1200px) {
     .SerialNumberPageContainer{
         border: none;
+        flex-direction: row;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    .ProductListContainer,
+    .SerialNumberListContainer,
+    .SerialNumberCrudContainer{
+        min-width: 300pt;
     }
 }

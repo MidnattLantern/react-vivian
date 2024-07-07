@@ -38,7 +38,7 @@ const SerialNumberPage = () => {
             setHasLoaded(true);
             console.log("fetch/ refresh product list")
         } catch(err){
-            console.log(err);
+//            console.log(err);
         };
     };
     const fetchSerialNumberList = async () => {
@@ -48,7 +48,7 @@ const SerialNumberPage = () => {
             setHasLoaded(true)
             console.log("fetch/ refresh serial number list")
         } catch(err) {
-            console.log(err);
+//            console.log(err);
         };
     };
 

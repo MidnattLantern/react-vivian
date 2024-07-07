@@ -18,7 +18,7 @@ const SignOutPage = () => {
             setCurrentUser(null);
             history.push('/');
         } catch (err) {
-            console.log(err);
+//            console.log(err);
         }
     };
 

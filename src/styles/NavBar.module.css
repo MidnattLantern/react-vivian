@@ -1,4 +1,4 @@
-.NavBarContainer {
+.NavBarContainer{
     border: 2px solid var(--container-border);
     border-radius: 3px;
     background:
@@ -10,6 +10,8 @@
         url("../assets/GUI/diagonal_pattern.svg");
     box-shadow: 0px 0px 15px 0px var(--container-border);
     height: 100%;
+    /* prevents an ugly dimension for certain circumstances */
+    min-width: 100pt;
     display: flex;
     flex-wrap: initial;
     flex-direction: column;
@@ -45,6 +47,7 @@
 }
 .Active,
 .Active:hover{
+    cursor: default;
     color: var(--container-light);
     background-color: rgba(0,0,0,0);
     border: 2px hidden var(--container-border);

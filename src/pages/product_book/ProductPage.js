@@ -32,7 +32,7 @@ const ProductPage = () => {
             setHasLoaded(true);
             console.log("fetch/ refresh product list")
         } catch(err){
-            console.log(err);
+//            console.log(err);
         };
     };
 

@@ -1,0 +1,14 @@
+.AboutContainer{
+    border: 2px dashed var(--container-border);
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .AboutContainer{
+        border: none;
+        padding: 20px;
+    }
+}

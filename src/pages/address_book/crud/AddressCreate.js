@@ -41,7 +41,7 @@ const AddressCreate = ({ setAction, setAddressFocus, fetchAddressList }) => {
             fetchAddressList();
             setAction(null);
         } catch (err) {
-            console.log(err);
+//            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             };

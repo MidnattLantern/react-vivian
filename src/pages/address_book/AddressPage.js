@@ -33,7 +33,7 @@ const AddressPage = () => {
             setHasLoaded(true);
             console.log("fetch/ refresh address list")
         } catch(err){
-            console.log(err);
+//            console.log(err);
         };
     };
 

@@ -56,7 +56,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
                     contact_email,
                 });
             }catch(err){
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();
@@ -85,7 +85,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
             fetchAddressList();
             setAction("detail");
         } catch (err) {
-            console.log(err);
+//            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             };
@@ -105,7 +105,7 @@ const AddressEdit = ({ addressFocus, setAddressFocus, setAction, fetchAddressLis
             setAddressFocus(null);
             setAction(null);
         } catch(err) {
-            console.log(err)
+//            console.log(err)
         };
      };
 

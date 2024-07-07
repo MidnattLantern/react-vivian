@@ -29,7 +29,7 @@ const ProductEdit = ({ productFocus, setProductFocus, setAction, fetchProductLis
                     serial_number_prefix,
                 });
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();
@@ -52,7 +52,7 @@ const ProductEdit = ({ productFocus, setProductFocus, setAction, fetchProductLis
             fetchProductList();
             setAction("detail");
         } catch (err) {
-            console.log(err);
+//            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             };
@@ -72,7 +72,7 @@ const ProductEdit = ({ productFocus, setProductFocus, setAction, fetchProductLis
             setProductFocus(null);
             setAction(null);
         } catch(err) {
-            console.log(err)
+//            console.log(err)
         };
     }
 ;

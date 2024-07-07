@@ -44,7 +44,7 @@ const SignUpForm = () => {
             history.push('/signin')
             console.log("Redirected to /signin")
         } catch(err) {
-            console.log(err)
+//            console.log(err)
         }
         setSignUpData({
             username: "",

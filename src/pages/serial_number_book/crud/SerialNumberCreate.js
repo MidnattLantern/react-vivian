@@ -28,7 +28,7 @@ const SerialNumberCreate = ({ productFocus, setAction, setSerialNumberFocus, fet
                     serial_number: serial_number_prefix,
                 });
             } catch(err) {
-                console.log(err)
+//                console.log(err)
             };
         };
         handleMount();
