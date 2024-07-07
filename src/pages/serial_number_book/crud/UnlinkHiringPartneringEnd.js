@@ -3,11 +3,7 @@ import React from "react";
 import Styles from "../../../styles/AddressItem.module.css";
 import "../../../global.css";
 
-const AddressItem = ({ setSerialNumberData, setDisplaySelectedPartneringEnd, ...props }) => {
-    const {
-        id,
-        partnering_end,
-    } = props
+const UnlinkHiringPartneringEnd = ({ setSerialNumberData, setDisplaySelectedPartneringEnd, }) => {
 
     const handleSelect = ( property, value ) => {
         setSerialNumberData(prevState => ({
@@ -15,14 +11,14 @@ const AddressItem = ({ setSerialNumberData, setDisplaySelectedPartneringEnd, ...
             [property]: value
         }));
         /* show the name instead of ID (retrieved from address book) */
-        setDisplaySelectedPartneringEnd(partnering_end)
+        setDisplaySelectedPartneringEnd("")
     };
 
     return (<>
-        <p className={Styles.BridgeListButton} onClick={() => {handleSelect('link_partnering_end', id)}}>
-            {partnering_end}
+        <p className={Styles.BridgeListButton} onClick={() => {handleSelect('link_partnering_end', "")}}>
+            (Unlink Hiring Partner)
         </p>
     </>);
 };
 
-export default AddressItem;
+export default UnlinkHiringPartneringEnd;

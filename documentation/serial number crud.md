@@ -17,3 +17,7 @@ Styles.FitTDTitle
 setDisplaySelectedPartneringEnd
 ---
 - The display_partnering_end from Serial Number Book cannot make live updates, but Address Book can in this context. The setDisplaySelectedPartneringEnd in useEffect retrieve its name from the Serail Number Book, and from the Address Book in live updates. This is achieved by passing setDisplaySelectedPartneringEnd to the AddressItem component (bridge) which is talking to the Address Book.
+
+setting to null again
+---
+- The API does not accept ´null´ as an argument. However, it does accept an empty string and will treat a PUT as a null.

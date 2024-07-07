@@ -9,6 +9,10 @@ import "../../../global.css";
 import { Form } from "react-bootstrap";
 // components
 import AddressItem from "./AddressItem";
+import UnlinkHiringPartneringEnd from "./UnlinkHiringPartneringEnd";
+// SVG GUI
+import {ReactComponent as DropDownIcon} from "../../../assets/GUI/dropdown_icon.svg";
+import {ReactComponent as DropDownIconCollapsed} from "../../../assets/GUI/dropdown_icon_collapsed.svg";
 
 const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, fetchSerialNumberList, currentUser }) => {
     const [errors, setErrors] = useState({});
@@ -116,6 +120,10 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
         };
     };
 
+    const handleSelect = () => {
+        setSerialNumberData({[link_partnering_end]: null});
+    };
+
     return(<>
         <div className={Styles.SerialNumberEditContainer}>
             <h1 className={Styles.Uppercase}>EDIT {display_link_product_name} - {serial_number}</h1>
@@ -149,22 +157,32 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                         <tr>
                             <td className={Styles.FitTDTitle}>Hiring partner:</td>
                             <td className={Styles.PartneringEndTitle} onClick={toggleAddressDropdown}>
-                            {displaySelectedPartneringEnd} ..v
+                                {displaySelectedPartneringEnd}
+                                {addressDropdown ? (
+                                    <i className={Styles.DropDownSVG}><DropDownIconCollapsed /></i>
+                                ) : (
+                                    <i className={Styles.DropDownSVG}><DropDownIcon /></i>
+                                )}
+                                
                             </td>
                         </tr>
                     </table>
 
                             <div className={`${Styles.PartneringEndList} ${addressDropdown ? '' : Styles.NotVisible}`}>
 
-                                <div className={Styles.BridgeListButton} onClick={() => {}}>
-                                    <hr/>
-                                    <p>(Unlink Hiring Partner)</p>
-                                    <hr/>
-                                </div>
+                                    <UnlinkHiringPartneringEnd
+                                    setSerialNumberData={setSerialNumberData}
+                                    setDisplaySelectedPartneringEnd={setDisplaySelectedPartneringEnd}
+                                    />
                                 {addressList.length ? (<>
                                     <InfiniteScroll
                                     children={addressList.map((address) => (<>
-                                        <AddressItem key={address.id} {...address} setSerialNumberData={setSerialNumberData} setDisplaySelectedPartneringEnd={setDisplaySelectedPartneringEnd}/>
+                                        <AddressItem
+                                        key={address.id}
+                                        {...address}
+                                        setSerialNumberData={setSerialNumberData}
+                                        setDisplaySelectedPartneringEnd={setDisplaySelectedPartneringEnd}
+                                        />
                                     </>))}
                                     dataLength={addressList.length}
                                     loader={<p>loading...</p>}

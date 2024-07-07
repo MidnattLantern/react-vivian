@@ -23,6 +23,12 @@ td {
     font-family: Inter, sans-serif;
 }
 
+/* usuallt paragraph have a margin */
+p{
+    margin: 0;
+    padding: 10px;
+}
+
 .Button, .ButtonDisabled {
     border: 2px solid var(--grey);
     background-color: var(--grey);
@@ -53,7 +59,7 @@ td {
     color: var(--white);
     border-radius: 0px;
     border: none;
-    border-bottom: 1px none var(--container-light);
+    border-bottom: 1px none var(--container);
 }
 .FormControl:focus {
     background-color: rgba(0,0,0,0);
@@ -129,29 +135,59 @@ td {
 
 /* dropdown */
 .PartneringEndTitle{
+    padding-bottom: 7px;
     cursor: context-menu;
     margin: 5px;
-    display: flex;
     align-items: baseline;
     color: var(--white);
+
+    display: flex;
+    flex-direction: row;
+    justify-content:baseline;
+    align-items:center;
 }
 .PartneringEndTitle:hover{
     color: var(--theme)
+}
+.PartneringEndTitle:hover > .DropDownSVG{
+    fill: var(--theme);
 }
 
 .PartneringEndList{
     max-height: 350px;
     width: 100%;
     transition: max-height 0.25s ease-out;
-    border-bottom: 1px solid var(--container-light);
+    border-bottom: 1px solid var(--white);
     overflow-y: scroll;
     overflow-x: hidden;
 }
 .PartneringEndList.NotVisible{
     max-height: 0;
+    border-bottom: none;
 }
 
 /* Make "Hiring Partner" stay on the same line */
 .FitTDTitle{
     width: 135px;
+}
+.DropDownSVG{
+    margin-left: 5pt;
+    width: auto;
+    height: 15px;
+    fill: var(--white);
+}
+.DropDownSVG:hover{
+    fill: var(--theme)
+}
+
+.BridgeListButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--white);
+}
+.BridgeListButton:hover{
+    color: var(--theme);
+    background-color: rgba(0,0,0,0.2);
 }

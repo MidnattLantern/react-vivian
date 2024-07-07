@@ -21,9 +21,13 @@
 
 /* Bridge classes */
 .BridgeListButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     color: var(--white);
 }
 .BridgeListButton:hover{
-    color: var(--theme)
+    color: var(--theme);
+    background-color: rgba(0,0,0,0.2);
 }

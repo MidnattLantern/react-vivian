@@ -7,3 +7,15 @@ h1{
     padding: 20px;
     height: 100%;
 }
+
+.SVGContainer{
+    border: 1px hidden var(--container-border);
+    width: 200pt;
+    height: auto;
+}
+.SVGItem{
+    fill: var(--container-border);
+}
+.SVGItem:hover{
+    fill: var(--theme)
+}
