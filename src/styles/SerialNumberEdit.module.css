@@ -120,18 +120,35 @@ td {
 
 .Immutable,
 .Immutable:focus{
+    cursor: not-allowed;
     background-color: rgba(0,0,0,0);
     border: none;
     color: var(--immutable-text);
     box-shadow: none;
 }
 
+/* dropdown */
+.PartneringEndTitle{
+    cursor: context-menu;
+    margin: 5px;
+    display: flex;
+    align-items: baseline;
+    color: var(--white);
+}
+.PartneringEndTitle:hover{
+    color: var(--theme)
+}
+
 .PartneringEndList{
-    max-height: 150px;
+    max-height: 350px;
     width: 100%;
+    transition: max-height 0.25s ease-out;
     border-bottom: 1px solid var(--container-light);
     overflow-y: scroll;
     overflow-x: hidden;
+}
+.PartneringEndList.NotVisible{
+    max-height: 0;
 }
 
 /* Make "Hiring Partner" stay on the same line */

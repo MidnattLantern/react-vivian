@@ -1,3 +1,4 @@
+/* Origin classes */
 .ListButton{
     width: 90%;
     height: 40px;
@@ -16,4 +17,13 @@
 }
 .AlignLeft{
     text-align: left;
+}
+
+/* Bridge classes */
+.BridgeListButton{
+    cursor: pointer;
+    color: var(--white);
+}
+.BridgeListButton:hover{
+    color: var(--theme)
 }

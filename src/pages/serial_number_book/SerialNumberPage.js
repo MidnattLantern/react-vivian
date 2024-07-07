@@ -145,7 +145,7 @@ const renderAction = (action) => {
             </>)}
                 </div>
             </div>
-            <div className={Styles.SerialNumberCrudContainer}>
+            <div className={`${Styles.SerialNumberCrudContainer} ${action === null ? Styles.NotVisible : ''}`}>
                 {renderAction(action)}
             </div>
         </div>

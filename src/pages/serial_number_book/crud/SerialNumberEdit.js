@@ -13,6 +13,8 @@ import AddressItem from "./AddressItem";
 const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, fetchSerialNumberList, currentUser }) => {
     const [errors, setErrors] = useState({});
     const [addressDropdown, setAddressDropdown] = useState(false);
+    /* show the name instead of ID (retrieved from address book) */
+    const [displaySelectedPartneringEnd, setDisplaySelectedPartneringEnd] = useState(null);
     const [serialNumberData, setSerialNumberData] = useState({
         link_product_name: "",
         link_partnering_end: "",
@@ -33,7 +35,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
         try {
             const { data } = await axiosReq.get(`/address_book/?owner__profile=${currentUser?.pk}`);
             setAddressList(data);
-            console.log("fetch/ refresh address list")
+            console.log("fetch/ refresh address list");
         } catch(err){
             console.log(err);
         };
@@ -41,14 +43,8 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
 
     const toggleAddressDropdown = () => {
         setAddressDropdown(prevState => !prevState);
-    }
+    };
 
-    const handleTest = ( property, value ) => {
-        setSerialNumberData(prevState => ({
-            ...prevState,
-            [property]: value
-        }))
-    }
 
     useEffect(() => {
         const handleMount = async () => {
@@ -68,6 +64,8 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                     display_link_product_name,
                     display_link_partnering_end,
                 });
+                /* setDisplaySelectedPartneringEnd must be here */
+                await setDisplaySelectedPartneringEnd(display_link_partnering_end)
             } catch(err) {
                 console.log(err)
             };
@@ -126,7 +124,7 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                 <Form.Group>
                     <table className={Styles.AlignLeft}>
                         <tr>
-                            <td>Serial Number</td>
+                            <td>Serial Number:</td>
                             <td>
                                 <Form.Control
                                 className={Styles.FormControl}
@@ -150,26 +148,31 @@ const SerialNumberEdit = ({ serialNumberFocus, setSerialNumberFocus, setAction, 
                         </tr>
                         <tr>
                             <td className={Styles.FitTDTitle}>Hiring partner:</td>
-                            <td>
-                                <p onClick={toggleAddressDropdown}> --- v </p>
+                            <td className={Styles.PartneringEndTitle} onClick={toggleAddressDropdown}>
+                            {displaySelectedPartneringEnd} ..v
                             </td>
                         </tr>
                     </table>
 
-                            {addressDropdown ? (<>
+                            <div className={`${Styles.PartneringEndList} ${addressDropdown ? '' : Styles.NotVisible}`}>
+
+                                <div className={Styles.BridgeListButton} onClick={() => {}}>
+                                    <hr/>
+                                    <p>(Unlink Hiring Partner)</p>
+                                    <hr/>
+                                </div>
                                 {addressList.length ? (<>
                                     <InfiniteScroll
                                     children={addressList.map((address) => (<>
-                                        <AddressItem key={address.id} {...address} setSerialNumberData={setSerialNumberData} />
+                                        <AddressItem key={address.id} {...address} setSerialNumberData={setSerialNumberData} setDisplaySelectedPartneringEnd={setDisplaySelectedPartneringEnd}/>
                                     </>))}
                                     dataLength={addressList.length}
                                     loader={<p>loading...</p>}
                                     hasMore={!!addressList.next}
                                     next={() => fetchMoreData(addressList, setAddressList)}
-                                    className={Styles.PartneringEndList}
                                     />
                                 </>) : (null)}
-                            </>) : null}
+                            </div>
                     
                 </Form.Group>
             </Form>

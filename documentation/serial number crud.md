@@ -13,3 +13,7 @@ Partnering end list/ Address List
 Styles.FitTDTitle
 ---
 - A table will automatically rescale everything else if one deviate with special dimensions. `Styles.FitTDTitle` ensure that "Hiring partner" stay on the same line for consistency.
+
+setDisplaySelectedPartneringEnd
+---
+- The display_partnering_end from Serial Number Book cannot make live updates, but Address Book can in this context. The setDisplaySelectedPartneringEnd in useEffect retrieve its name from the Serail Number Book, and from the Address Book in live updates. This is achieved by passing setDisplaySelectedPartneringEnd to the AddressItem component (bridge) which is talking to the Address Book.
